@@ -63,6 +63,7 @@ namespace SEPFramework
             }
 
             rdr.Close();
+            tb.TableName = tableName;
             return tb;
         }
     }

@@ -6,27 +6,56 @@ namespace SEPFramework
 
     public class Database
     {
-
+        public readonly CommonConnection Connection;
+        private readonly Dictionary<string, Table> tables = new Dictionary<string, Table>();
         public Database(CommonConnection connection)
         {
             this.Connection = connection;
         }
-        public CommonConnection Connection;
 
-        private Dictionary<int, string> tables;
         public bool Create(string tableName, Row row) { return true; }
         public bool Read(Table table)
         {
+            if (tables.ContainsKey(table.Name)) {
+                DataTableToTable(Connection.getTable(table.Name), table);
+                return true;
+            }
+            return false;
+        }
 
-            DataTable data = Connection.getTable(table.Name);
-            if (dataTables.ContainsKey(table.Name))
+        public bool Update(string tableName, Row row, Row newRow) { return true; }
+        public bool Delete(string tableName, Row row) { return true; }
+
+        public Table GetTableByName(string tableName)
+        {
+
+            if (tables.ContainsKey(tableName))
             {
-                dataTables[table.Name] = data;
+                return tables[tableName];
             }
-            else
+            return null;
+        }
+
+        public List<string> GetTableNames()
+        {
+            return  new List<string>(this.tables.Keys);
+        }
+
+        public void LoadData()
+        {
+            List<string> tableNames = Connection.getListTableName();
+            foreach(string tableName in tableNames)
             {
-                dataTables.Add(table.Name, data);
+                DataTable data = Connection.getTable(tableName);
+                Table table = new Table(Create, Read, Update, Delete, data.TableName);
+                DataTableToTable(data,table);
+                table.dataTable = data;
+                tables.Add(table.Name, table);
             }
+        }
+
+        private Table DataTableToTable(DataTable data, Table table)
+        {
             foreach (DataColumn col in data.Columns)
             {
                 table.Columns.Add(new Column(col.ColumnName, col.DataType));
@@ -40,45 +69,7 @@ namespace SEPFramework
                 }
                 table.Rows.Add(r);
             }
-            return true;
-        }
-
-        public bool Update(string tableName, Row row, Row newRow) { return true; }
-        public bool Delete(string tableName, Row row) { return true; }
-
-        private Dictionary<string, DataTable> dataTables = new Dictionary<string, DataTable>();
-
-        public Table GetTableByName(string tableName)
-        {
-
-            if (tables.ContainsValue(tableName))
-            {
-                return new Table(Create, Read, Update, Delete, tableName);
-            }
-            return null;
-        }
-
-        public List<string> GetTableNames()
-        {
-            this.tables = new Dictionary<int, string>();
-            List<string> listName = new List<string>();
-            listName = this.Connection.getListTableName();
-            for (int i = 0; i < listName.Count; i++)
-            {
-                tables.Add(i, listName[i]);
-            }
-            return listName;
-        }
-        public DataTable GetTableDataTable(string name)
-        {
-            if (dataTables.ContainsKey(name))
-                return dataTables[name];
-            else
-            {
-                DataTable tb = Connection.getTable(name);
-                dataTables.Add(name, tb);
-                return tb;
-            }
+            return table;
         }
     }
 }

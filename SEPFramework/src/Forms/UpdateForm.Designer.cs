@@ -1,6 +1,6 @@
 ﻿namespace SEPFramework
 {
-    partial class AddForm
+    partial class UpdateForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // AddForm
+            // UpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(711, 517);
-            this.Name = "AddForm";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "UpdateForm";
+            this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.ResumeLayout(false);
 
         }

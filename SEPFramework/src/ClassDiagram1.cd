@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SEPFramework.Database">
+  <Class Name="SEPFramewor.Database">
     <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAIAAACAAAAFAAAQAAAAgAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAwAAIAAAAAQAAFAAAAAAAAgAAEAAEAAAAAAAgAAAAA=</HashCode>
       <FileName>src\Database\Database.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.CommonConnection">
+  <Class Name="SEPFramewor.CommonConnection">
     <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABABAAAAAAEAAAAIIEAAAAAAAgAAAgAACAAAAA=</HashCode>
       <FileName>src\Database\Connection\CommonConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.Mysql">
+  <Class Name="SEPFramewor.Mysql">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAABIIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Connection\MysqlConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.Table">
+  <Class Name="SEPFramewor.Table">
     <Position X="2.5" Y="5.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
@@ -37,28 +37,28 @@
       <Field Name="DeleteAction" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SEPFramework.Column">
+  <Class Name="SEPFramewor.Column">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>src\Database\Table\Column.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.Row">
+  <Class Name="SEPFramewor.Row">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAGAAAAAAAAAAAABA=</HashCode>
       <FileName>src\Database\Table\Row.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.MemberShip">
+  <Class Name="SEPFramewor.MemberShip">
     <Position X="9" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Members\MemberShip.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.Member">
+  <Class Name="SEPFramewor.Member">
     <Position X="11" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAAAAAgAAAAA=</HashCode>
@@ -68,74 +68,74 @@
       <Property Name="Role" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SEPFramework.Role">
+  <Class Name="SEPFramewor.Role">
     <Position X="10" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Members\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.SqlServerConnection">
+  <Class Name="SEPFramewor.SqlServer">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAIIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAAAABIIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Connection\SqlServerConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.MainForm">
+  <Class Name="SEPFramewor.MainForm">
     <Position X="6.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAgAABQAACAAAACAAAYAAAAAGAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAgAABQAACAAAACAAAYAAQAAHAAAAAAAAA=</HashCode>
       <FileName>MainForm.cs</FileName>
       <NewMemberFileName>src\Members\MainForm.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.BaseForm">
+  <Class Name="SEPFramewor.BaseForm">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAABAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAABAAACAAAACAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Forms\BaseForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SEPFramework.AddForm">
+  <Class Name="SEPFramewor.AddForm">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACEAQAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>src\Forms\AddForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="SEPFramework.FormType">
+  <Enum Name="SEPFramewor.FormType">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAIAAA=</HashCode>
       <FileName>src\Forms\FormType.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Delegate Name="SEPFramework.CreateAction">
+  <Delegate Name="SEPFramewor.CreateAction">
     <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Table\Actions.cs</FileName>
     </TypeIdentifier>
   </Delegate>
-  <Delegate Name="SEPFramework.ReadAction">
+  <Delegate Name="SEPFramewor.ReadAction">
     <Position X="0.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Table\Actions.cs</FileName>
     </TypeIdentifier>
   </Delegate>
-  <Delegate Name="SEPFramework.DeleteAction">
+  <Delegate Name="SEPFramewor.DeleteAction">
     <Position X="0.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Table\Actions.cs</FileName>
     </TypeIdentifier>
   </Delegate>
-  <Delegate Name="SEPFramework.UpdateAction">
+  <Delegate Name="SEPFramewor.UpdateAction">
     <Position X="0.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Table\Actions.cs</FileName>
     </TypeIdentifier>
   </Delegate>

@@ -12,7 +12,11 @@ namespace SEPFramework
         }
         private BaseForm()
         {
+            SetUpUi();
             InitializeComponent();
+
+
         }
+        protected virtual void SetUpUi() {  }
     }
 }

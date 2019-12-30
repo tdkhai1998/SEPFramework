@@ -13,10 +13,13 @@ namespace SEPFramework
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //CommonConnection connection = new Mysql("remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
-            CommonConnection connection = new SqlServer(@"DESKTOP-FRPO8I4\SQLEXPRESS", "testDB", "", "", 1433);
-            Database dt = new Database(connection);
-            Application.Run(new MainForm(dt));
+            CommonConnection connection = new Mysql("remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
+
+            //CommonConnection connection = new SqlServer(@"DESKTOP-FRPO8I4\SQLEXPRESS", "testDB", "", "", 1433);
+
+            SEPContainer.RegisterInstance<CommonConnection>(connection);
+
+            Application.Run(new MainForm(SEPContainer.Create<Database>()));
         }
     }
 }

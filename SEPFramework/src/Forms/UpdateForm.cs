@@ -8,14 +8,16 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public partial class AddForm : SEPFramework.BaseForm
+    public partial class UpdateForm : SEPFramework.BaseForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
-        public AddForm(Table table) : base(table)
+        int CurrentRow;
+        public UpdateForm(Table table, int CurrentRow) : base(table)
         {
             InitializeComponent();
-            this.SetUpUi();
+            this.CurrentRow = CurrentRow;
+            SetUpUi();
         }
         protected override void SetUpUi()
         {
@@ -45,12 +47,18 @@ namespace SEPFramework
                 textBox.Size = new Size(300, 20);
                 textBox.Location = new Point(230, 20 + i * 40);
                 textBox.Parent = this;
+                textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
                 this.Controls.Add(textBox);
 
                 LabelList.Add(label);
                 TextBoxList.Add(textBox);
                 i++;
             }
+        }
+
+        private void UpdateForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
