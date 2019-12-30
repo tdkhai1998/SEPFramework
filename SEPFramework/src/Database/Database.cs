@@ -69,7 +69,7 @@ namespace SEPFramework
             }
             return listName;
         }
-        public DataTable GetTableDataTbale(string name)
+        public DataTable GetTableDataTable(string name)
         {
             if (dataTables.ContainsKey(name))
                 return dataTables[name];

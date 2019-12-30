@@ -34,7 +34,7 @@ namespace SEPFramework
         private void button2_Click(object sender, EventArgs e)
         {
             Table t = this.database.GetTableByName(this.comboBox1.SelectedItem.ToString());
-            t.dataTable = this.database.GetTableDataTbale(this.comboBox1.SelectedItem.ToString());
+            t.dataTable = this.database.GetTableDataTable(this.comboBox1.SelectedItem.ToString());
             ReadForm r = new ReadForm(t);
             r.Show();
         }
