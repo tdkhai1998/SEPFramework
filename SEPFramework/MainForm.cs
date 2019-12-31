@@ -36,10 +36,10 @@ namespace SEPFramework
         {
             Table t = this.database.GetTableByName(this.comboBox1.SelectedItem.ToString());
             SEPContainer.RegisterInstance<Table>(t);
-            ReadForm r = SEPContainer.Create<ReadForm>();
+            IReadForm r = SEPContainer.Create<IReadForm>();
             this.Hide();
-            r.FormClosed += (s, args) => this.Show();
-            r.Show();
+            ((BaseForm)r).FormClosed += (s, args) => this.Show();
+            ((BaseForm)r).Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

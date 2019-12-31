@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public partial class AddForm : SEPFramework.BaseForm
+    public partial class AddForm : SEPFramework.BaseForm,IAddForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
@@ -17,6 +17,11 @@ namespace SEPFramework
             InitializeComponent();
             this.SetUpUi();
         }
+        public AddForm() {
+            InitializeComponent();
+            this.SetUpUi();
+        }
+
         protected override void SetUpUi()
         {
             base.SetUpUi();
@@ -29,28 +34,39 @@ namespace SEPFramework
                 this.Controls.Remove(control);
             }
 
-            TextBoxList.Clear();
-            LabelList.Clear();
-            int i = 0;
-            foreach (Column col in table.Columns)
+            if (table != null)
             {
-                Label label = new Label();
-                label.Text = col.Name;
-                label.Size = new Size(100, 20);
-                label.Location = new Point(20, 20 + i * 40);
-                label.Parent = this;
-                this.Controls.Add(label);
+                TextBoxList.Clear();
+                LabelList.Clear();
+                int i = 0;
+                foreach (Column col in table.Columns)
+                {
+                    Label label = new Label();
+                    label.Text = col.Name;
+                    label.Size = new Size(100, 20);
+                    label.Location = new Point(20, 20 + i * 40);
+                    label.Parent = this;
+                    this.Controls.Add(label);
 
-                TextBox textBox = new TextBox();
-                textBox.Size = new Size(300, 20);
-                textBox.Location = new Point(230, 20 + i * 40);
-                textBox.Parent = this;
-                this.Controls.Add(textBox);
+                    TextBox textBox = new TextBox
+                    {
+                        Size = new Size(300, 20),
+                        Location = new Point(230, 20 + i * 40),
+                        Parent = this
+                    };
+                    this.Controls.Add(textBox);
 
-                LabelList.Add(label);
-                TextBoxList.Add(textBox);
-                i++;
+                    LabelList.Add(label);
+                    TextBoxList.Add(textBox);
+                    i++;
+                }
             }
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

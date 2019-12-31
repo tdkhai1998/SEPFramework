@@ -14,6 +14,9 @@ namespace SEPFramework
 
         SEPContainer()
         {
+            types.Add(typeof(IAddForm), typeof(AddForm));
+            types.Add(typeof(IReadForm), typeof(ReadForm));
+            types.Add(typeof(IUpdateForm), typeof(UpdateForm));
         }
 
         private static SEPContainer Instance
@@ -47,7 +50,7 @@ namespace SEPFramework
         }
 
 
-        private void IRegisterType<TInterface, TImplementation>() where TImplementation : TInterface
+        private void IRegisterType<TInterface, TImplementation>() where TImplementation : TInterface  
         {
             types[typeof(TInterface)] = typeof(TImplementation);
         }
@@ -90,5 +93,6 @@ namespace SEPFramework
                 return defaultConstructor.Invoke(parameters);
             }
         }
+
     }
 }

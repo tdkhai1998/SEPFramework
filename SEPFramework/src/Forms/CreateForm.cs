@@ -6,5 +6,9 @@
         {
             InitializeComponent();
         }
+        public CreateForm() 
+        {
+            InitializeComponent();
+        }
     }
 }

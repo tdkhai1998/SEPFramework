@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace SEPFramework
 {
@@ -10,10 +11,19 @@ namespace SEPFramework
             InitializeComponent();
             this.table = table;
         }
-        private BaseForm()
+        public BaseForm()
         {
-            SetUpUi();
+
             InitializeComponent();
+            SetUpUi();
+            try
+            {
+                this.table = SEPContainer.Create<Table>();
+            }
+            catch (Exception)
+            {
+
+            }
 
 
         }

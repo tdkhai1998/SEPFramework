@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public partial class UpdateForm : SEPFramework.BaseForm
+    public partial class UpdateForm : SEPFramework.BaseForm, IUpdateForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
