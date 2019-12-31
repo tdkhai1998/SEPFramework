@@ -12,6 +12,11 @@ namespace SEPFramework
         {
         }
 
+        public override bool Add(string tableName, Row row)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool Connect()
         {
             SqlConnectionStringBuilder connBuilder = new SqlConnectionStringBuilder();
@@ -40,6 +45,11 @@ namespace SEPFramework
             }
         }
 
+        public override bool Delete(string tableName, Row row)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<string> getListTableName()
         {
             DataTable schema = connection.GetSchema("Tables");
@@ -65,6 +75,11 @@ namespace SEPFramework
             rdr.Close();
             tb.TableName = tableName;
             return tb;
+        }
+
+        public override bool Update(string tableName, Row row, Row newRow)
+        {
+            throw new NotImplementedException();
         }
     }
 }

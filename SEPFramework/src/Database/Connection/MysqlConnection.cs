@@ -12,6 +12,12 @@ namespace SEPFramework
         {
 
         }
+
+        public override bool Add(string tableName, Row row)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool Connect()
         {
             {
@@ -28,6 +34,11 @@ namespace SEPFramework
                     return false;
                 }
             }
+        }
+
+        public override bool Delete(string tableName, Row row)
+        {
+            throw new NotImplementedException();
         }
 
         public override List<string> getListTableName()
@@ -57,6 +68,11 @@ namespace SEPFramework
 
             rdr.Close();
             return tb;
+        }
+
+        public override bool Update(string tableName, Row row, Row newRow)
+        {
+            throw new NotImplementedException();
         }
     }
 }

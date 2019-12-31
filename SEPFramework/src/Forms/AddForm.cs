@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public partial class AddForm : SEPFramework.BaseForm,IAddForm
+    public partial class AddForm : SEPFramework.BaseForm, IAddForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
@@ -17,7 +17,8 @@ namespace SEPFramework
             InitializeComponent();
             this.SetUpUi();
         }
-        public AddForm() {
+        public AddForm()
+        {
             InitializeComponent();
             this.SetUpUi();
         }
@@ -41,6 +42,7 @@ namespace SEPFramework
                 int i = 0;
                 foreach (Column col in table.Columns)
                 {
+                    if (col.ReadOnly) continue;
                     Label label = new Label();
                     label.Text = col.Name;
                     label.Size = new Size(100, 20);
@@ -61,12 +63,22 @@ namespace SEPFramework
                     i++;
                 }
             }
-        
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+            Button add = new Button();
+            // 
+            // add
+            // 
+            add.Location = new System.Drawing.Point(20, 20 + i * 40);
+            add.Name = "add";
+            add.Size = new System.Drawing.Size(123, 75);
+            add.TabIndex = 0;
+            add.Text = "Thêm";
+            add.UseVisualStyleBackColor = true;
+            this.Controls.Add(add);
         }
     }
 }

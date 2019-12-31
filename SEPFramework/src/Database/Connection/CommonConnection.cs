@@ -20,6 +20,10 @@ namespace SEPFramework
         protected string pass;
         protected int port;
 
+        public abstract bool Add(string tableName, Row row);
+        public abstract bool Update(string tableName, Row row, Row newRow);
+        public abstract bool Delete(string tableName, Row row);
+
         public abstract bool Connect();
         public abstract DataTable getTable(string tableName);
         public abstract List<string> getListTableName();
