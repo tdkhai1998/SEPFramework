@@ -44,7 +44,7 @@ namespace SEPFramework
             this.attributes = new Dictionary<string, Attribute>();
             for (int i = 0; i < columns.Count; i++)
             {
-                attributes.Add(columns[i].Name, new Attribute(columns[i].Type, columns[i].Name));
+                attributes.Add(columns[i].Name, new Attribute(columns[i].Type, columns[i].Name,columns[i].ReadOnly));
             }
         }
         public Row Clone()

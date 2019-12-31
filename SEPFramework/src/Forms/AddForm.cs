@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public delegate void InsertDone();
+ 
     public partial class AddForm : SEPFramework.BaseForm, IAddForm
     {
         List<Control> LabelList = new List<Control>();
@@ -64,17 +64,7 @@ namespace SEPFramework
                     TextBoxList.Add(textBox);
                     i++;
                 }
-                Button add = new Button();
-                // 
-                // add
-                // 
-                add.Location = new System.Drawing.Point(20, 20 + i * 40);
-                add.Name = "add";
-                add.Size = new System.Drawing.Size(123, 75);
-                add.TabIndex = 0;
-                add.Text = "Thêm";
-                add.UseVisualStyleBackColor = true;
-                this.Controls.Add(add);
+               
             }
 
         }

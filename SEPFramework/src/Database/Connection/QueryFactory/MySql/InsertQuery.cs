@@ -25,10 +25,8 @@ namespace SEPFramework
 
 
             MySqlCommand command = new MySqlCommand();
-
             List<String> fields = row.Attributes.Keys.ToList();
             List<Attribute> values = row.Attributes.Values.ToList();
-
             String fieldsString = this.createFieldsInsertString(fields);
             String paramsString = this.createParamsInsertString(fields.Count);
 
@@ -38,6 +36,7 @@ namespace SEPFramework
             for (int i = 0; i < fields.Count; i++)
             {
                 Console.WriteLine(values[i].Value);
+                
                 command.Parameters.AddWithValue("@param" + i, values[i].Value);
 
 

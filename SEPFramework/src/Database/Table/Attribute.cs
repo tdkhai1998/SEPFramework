@@ -4,24 +4,24 @@ namespace SEPFramework
 {
     class Attribute
     {
-        public Attribute(Type t, string n, object v = null)
-        {
-            this.Type = t;
-            this.Name = n;
-            this.Value = v;
-        }
-        private Attribute() { }
+    
+    
         public Type Type;
         public string Name;
-        public Object Value;
+        public Object Value = null;
+        public bool IsReadOnly;
+
+        public Attribute(Type type, string name, bool isReadOnly, object value = null)
+        {
+            Type = type;
+            Name = name;
+            Value = value;
+            IsReadOnly = isReadOnly;
+        }
+
         public Attribute Clone()
         {
-            return new Attribute
-            {
-                Name = Name,
-                Type = Type,
-                Value = Value
-            };
+            return new Attribute(Type, Name, IsReadOnly, Value);
         }
     }
 }

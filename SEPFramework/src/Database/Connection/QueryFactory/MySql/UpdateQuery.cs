@@ -37,11 +37,13 @@ namespace SEPFramework
 
             for (int i = 0; i < newValues.Count; i++)
             {
-                command.Parameters.AddWithValue("@param" + i, newValues[i]);
+                Console.WriteLine("param" + i + " la " + newValues[i].Value);
+                command.Parameters.AddWithValue("@param" + i, newValues[i].Value);
             }
             for (int i = newValues.Count; i < newValues.Count * 2; i++)
             {
-                command.Parameters.AddWithValue("@param" + i, oldValues[i - oldValues.Count]);
+                Console.WriteLine("param" + i + " la " + oldValues[i - oldValues.Count].Value);
+                command.Parameters.AddWithValue("@param" + i, oldValues[i - oldValues.Count].Value);
             }
             return command;
         }

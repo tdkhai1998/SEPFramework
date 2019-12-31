@@ -13,20 +13,31 @@ namespace SEPFramework
             this.Connection = connection;
         }
 
-        public bool Create(string tableName, Row row) {
+        public bool Create(string tableName, Row row)
+        {
             Connection.Add(tableName, row);
-            return true; }
+            return true;
+        }
         public bool Read(Table table)
         {
-            if (tables.ContainsKey(table.Name)) {
+            if (tables.ContainsKey(table.Name))
+            {
                 DataTableToTable(Connection.getTable(table.Name), table);
                 return true;
             }
             return false;
         }
 
-        public bool Update(string tableName, Row row, Row newRow) { return true; }
-        public bool Delete(string tableName, Row row) { return true; }
+        public bool Update(string tableName, Row row, Row newRow)
+        {
+            Connection.Update(tableName, row, newRow);
+            return true;
+        }
+        public bool Delete(string tableName, Row row)
+        {
+            Connection.Delete(tableName, row);
+            return true;
+        }
 
         public Table GetTableByName(string tableName)
         {
@@ -40,17 +51,17 @@ namespace SEPFramework
 
         public List<string> GetTableNames()
         {
-            return  new List<string>(this.tables.Keys);
+            return new List<string>(this.tables.Keys);
         }
 
         public void LoadData()
         {
             List<string> tableNames = Connection.getListTableName();
-            foreach(string tableName in tableNames)
+            foreach (string tableName in tableNames)
             {
                 DataTable data = Connection.getTable(tableName);
                 Table table = new Table(Create, Read, Update, Delete, data.TableName);
-                DataTableToTable(data,table);
+                DataTableToTable(data, table);
                 table.dataTable = data;
                 tables.Add(table.Name, table);
             }

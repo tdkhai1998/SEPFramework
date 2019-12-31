@@ -14,23 +14,14 @@ namespace SEPFramework
         {
             switch (type)
             {
-                case "update":
-                    return new UpdateQuery(tableName, row, newRow);
-                default:
-                    return null;
-            }
-        }
-
-        public static MySqlCommonQuery createQuery(string type, String tableName, Row row)
-        {
-            switch (type)
-            {
                 case "insert":
                     return new InsertQuery(tableName, row);
 
                 case "delete":
                     return new DeleteQuery(tableName, row);
 
+                case "update":
+                    return new UpdateQuery(tableName, row, newRow);
                 default:
                     return null;
             }

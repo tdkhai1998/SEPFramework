@@ -28,12 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.updateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(27, 494);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(114, 38);
+            this.updateBtn.TabIndex = 0;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // UpdateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.Controls.Add(this.updateBtn);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UpdateForm";
             this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.ResumeLayout(false);
@@ -41,5 +54,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button updateBtn;
     }
 }

@@ -18,7 +18,7 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("insert", tableName, row).getQuery();
+            MySqlCommand cmd = MySqlQueryFactory.createQuery("insert", tableName, row,null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -35,12 +35,13 @@ namespace SEPFramework
         }
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("insert", tableName, row, newRow).getQuery();
+            MySqlCommand cmd = MySqlQueryFactory.createQuery("update", tableName, row, newRow).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
             {
                 int check = cmd.ExecuteNonQuery();
+                Console.WriteLine(check);
                 return check != 1;
             }
             catch
@@ -53,7 +54,7 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("delete", tableName, row).getQuery();
+            MySqlCommand cmd = MySqlQueryFactory.createQuery("delete", tableName, row,null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try

@@ -48,6 +48,7 @@ namespace SEPFramework
                 textBox.Location = new Point(230, 20 + i * 40);
                 textBox.Parent = this;
                 textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
+                textBox.Name = col.Name;
                 this.Controls.Add(textBox);
 
                 LabelList.Add(label);
@@ -59,6 +60,19 @@ namespace SEPFramework
         private void UpdateForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            Row newRow = table.Rows[CurrentRow].Clone();
+            for (int i = 0; i < TextBoxList.Count; i++)
+            {
+                newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
+            }
+
+            table.Update(table.Rows[CurrentRow],newRow);
+            table.Refresh();
+            done();
         }
     }
 }
