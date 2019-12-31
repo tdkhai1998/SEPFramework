@@ -13,7 +13,9 @@ namespace SEPFramework
             this.Connection = connection;
         }
 
-        public bool Create(string tableName, Row row) { return true; }
+        public bool Create(string tableName, Row row) {
+            Connection.Add(tableName, row);
+            return true; }
         public bool Read(Table table)
         {
             if (tables.ContainsKey(table.Name)) {
@@ -61,6 +63,9 @@ namespace SEPFramework
 
         private Table DataTableToTable(DataTable data, Table table)
         {
+            table.Columns.Clear();
+            table.Rows.Clear();
+            table.dataTable = data;
             foreach (DataColumn col in data.Columns)
             {
                 table.Columns.Add(new Column(col.ColumnName, col.DataType, isColumnReadOnly(col)));

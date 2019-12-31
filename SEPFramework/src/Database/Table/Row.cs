@@ -10,7 +10,13 @@ namespace SEPFramework
 
         }
         private Row() { }
+
+      
+
         private Dictionary<string, Attribute> attributes = new Dictionary<string, Attribute>();
+
+        internal Dictionary<string, Attribute> Attributes { get => attributes; }
+
         public object this[string attributeName]
         {
             get
@@ -25,7 +31,7 @@ namespace SEPFramework
             {
                 if (attributes.ContainsKey(attributeName))
                 {
-                    if (value.GetType() == attributes[attributeName].Type)
+                    if (attributes.ContainsKey(attributeName))
                     {
                         attributes[attributeName].Value = value;
                     }
@@ -38,7 +44,7 @@ namespace SEPFramework
             this.attributes = new Dictionary<string, Attribute>();
             for (int i = 0; i < columns.Count; i++)
             {
-                attributes.Add(columns[i].Name, new Attribute(columns[i].Type, columns[i].Type.Name));
+                attributes.Add(columns[i].Name, new Attribute(columns[i].Type, columns[i].Name));
             }
         }
         public Row Clone()

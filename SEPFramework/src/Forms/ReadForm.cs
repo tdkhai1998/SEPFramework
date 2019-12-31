@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace SEPFramework
@@ -14,13 +14,13 @@ namespace SEPFramework
         public ReadForm()
         {
             InitializeComponent();
-            if(table!=null)
-            this.dataGridView1.DataSource = table.dataTable;
+            if (table != null)
+                this.dataGridView1.DataSource = table.dataTable;
         }
 
         private void DataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            UpdateForm r = new UpdateForm(table,e.RowIndex);
+            UpdateForm r = new UpdateForm(table, e.RowIndex);
             r.ShowDialog();
         }
 
@@ -28,16 +28,23 @@ namespace SEPFramework
         {
             IAddForm r = SEPContainer.Create<IAddForm>();
             ((BaseForm)r).ShowDialog();
+            r.InsertDone = this.Done;
+            r.ShowDialog();
         }
 
         private void button2_Click(object sender, System.EventArgs e)
         {
             if (this.dataGridView1.SelectedCells.Count <= 0) return;
             SEPContainer.RegisterInstance<int>(this.dataGridView1.SelectedCells[0].RowIndex);
-            IUpdateForm r = SEPContainer.Create<IUpdateForm>();
-            ((BaseForm)r).ShowDialog();
+            UpdateForm r = SEPContainer.Create<UpdateForm>();
+
+            r.ShowDialog();
+        }
+        private void Done()
+        {
+            Console.WriteLine("ádasdadasda");
+            this.dataGridView1.DataSource = table.dataTable;
         }
 
-   
     }
 }
