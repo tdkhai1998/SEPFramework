@@ -8,10 +8,12 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
+    public delegate void InsertDone();
     public partial class AddForm : SEPFramework.BaseForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
+        public InsertDone InsertDone;
         public AddForm(Table table) : base(table)
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace SEPFramework
             foreach (Column col in table.Columns)
             {
                 Label label = new Label();
-                label.Text = col.Name;
+                label.Text = col.Name + " [" + col.Type.Name +"]";
                 label.Size = new Size(100, 20);
                 label.Location = new Point(20, 20 + i * 40);
                 label.Parent = this;
@@ -45,12 +47,29 @@ namespace SEPFramework
                 textBox.Size = new Size(300, 20);
                 textBox.Location = new Point(230, 20 + i * 40);
                 textBox.Parent = this;
-                this.Controls.Add(textBox);
+                textBox.Name = col.Name;
 
+                this.Controls.Add(textBox);
                 LabelList.Add(label);
                 TextBoxList.Add(textBox);
                 i++;
             }
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            Row newRow = table.CreateEmptyRow();
+            for (int i = 0; i < TextBoxList.Count; i++)
+            {
+                newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
+                Console.WriteLine(newRow.Attributes[LabelList[i].Text].Value);
+            }
+
+            table.Create(newRow);
+            table.Refresh();
+            InsertDone();
+        }
+     
+
     }
 }

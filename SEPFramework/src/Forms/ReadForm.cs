@@ -1,4 +1,8 @@
-﻿namespace SEPFramework
+﻿
+
+using System;
+
+namespace SEPFramework
 {
     public partial class ReadForm : SEPFramework.BaseForm
     {
@@ -17,6 +21,7 @@
         private void button1_Click(object sender, System.EventArgs e)
         {
             AddForm r = SEPContainer.Create<AddForm>();
+            r.InsertDone = this.Done;
             r.ShowDialog();
         }
 
@@ -25,7 +30,14 @@
             if (this.dataGridView1.SelectedCells.Count <= 0) return;
             SEPContainer.RegisterInstance<int>(this.dataGridView1.SelectedCells[0].RowIndex);
             UpdateForm r = SEPContainer.Create<UpdateForm>();
+         
             r.ShowDialog();
         }
+        private void Done()
+        {
+            Console.WriteLine("ádasdadasda");
+            this.dataGridView1.DataSource = table.dataTable;
+        }
+
     }
 }
