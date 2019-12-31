@@ -27,9 +27,8 @@ namespace SEPFramework
         private void button1_Click(object sender, System.EventArgs e)
         {
             IAddForm r = SEPContainer.Create<IAddForm>();
+            ((BaseForm)r).done = this.Done;
             ((BaseForm)r).ShowDialog();
-            r.InsertDone = this.Done;
-            r.ShowDialog();
         }
 
         private void button2_Click(object sender, System.EventArgs e)

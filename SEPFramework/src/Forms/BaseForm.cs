@@ -6,6 +6,7 @@ namespace SEPFramework
     public partial class BaseForm : Form
     {
         protected Table table;
+        public Done done;
         public BaseForm(Table table)
         {
             InitializeComponent();

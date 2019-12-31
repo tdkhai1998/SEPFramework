@@ -9,11 +9,10 @@ using System.Windows.Forms;
 namespace SEPFramework
 {
     public delegate void InsertDone();
-    public partial class AddForm : SEPFramework.BaseForm
+    public partial class AddForm : SEPFramework.BaseForm, IAddForm
     {
         List<Control> LabelList = new List<Control>();
         List<Control> TextBoxList = new List<Control>();
-        public InsertDone InsertDone;
         public AddForm(Table table) : base(table)
         {
             InitializeComponent();
@@ -65,23 +64,19 @@ namespace SEPFramework
                     TextBoxList.Add(textBox);
                     i++;
                 }
+                Button add = new Button();
+                // 
+                // add
+                // 
+                add.Location = new System.Drawing.Point(20, 20 + i * 40);
+                add.Name = "add";
+                add.Size = new System.Drawing.Size(123, 75);
+                add.TabIndex = 0;
+                add.Text = "Thêm";
+                add.UseVisualStyleBackColor = true;
+                this.Controls.Add(add);
             }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            Button add = new Button();
-            // 
-            // add
-            // 
-            add.Location = new System.Drawing.Point(20, 20 + i * 40);
-            add.Name = "add";
-            add.Size = new System.Drawing.Size(123, 75);
-            add.TabIndex = 0;
-            add.Text = "Thêm";
-            add.UseVisualStyleBackColor = true;
-            this.Controls.Add(add);
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -90,12 +85,11 @@ namespace SEPFramework
             for (int i = 0; i < TextBoxList.Count; i++)
             {
                 newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
-                Console.WriteLine(newRow.Attributes[LabelList[i].Text].Value);
             }
 
             table.Create(newRow);
             table.Refresh();
-            InsertDone();
+            done();
         }
 
 

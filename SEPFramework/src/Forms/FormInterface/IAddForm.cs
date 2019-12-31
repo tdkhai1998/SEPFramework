@@ -8,5 +8,6 @@ namespace SEPFramework
 {
     interface IAddForm
     {
+
     }
 }
