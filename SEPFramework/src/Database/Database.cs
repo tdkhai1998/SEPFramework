@@ -56,6 +56,11 @@ namespace SEPFramework
             }
         }
 
+        private bool isColumnReadOnly(DataColumn col)
+        {
+            return col.AutoIncrement;
+        }
+
         private Table DataTableToTable(DataTable data, Table table)
         {
             table.Columns.Clear();
@@ -63,7 +68,7 @@ namespace SEPFramework
             table.dataTable = data;
             foreach (DataColumn col in data.Columns)
             {
-                table.Columns.Add(new Column(col.ColumnName, col.DataType));
+                table.Columns.Add(new Column(col.ColumnName, col.DataType, isColumnReadOnly(col)));
             }
             foreach (DataRow row in data.Rows)
             {
