@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
- 
+
     public partial class AddForm : SEPFramework.BaseForm, IAddForm
     {
         List<Control> LabelList = new List<Control>();
@@ -22,7 +22,7 @@ namespace SEPFramework
         {
             InitializeComponent();
             this.SetUpUi();
-            
+
         }
 
         protected override void SetUpUi()
@@ -60,19 +60,37 @@ namespace SEPFramework
                     textBox.Location = new Point(230, 20 + i * 40);
                     textBox.Parent = this;
                     textBox.Name = col.Name;
+                    if (validate.IsNumericType(col.Type.Name))
+                    {
+                        textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
+                        {
+                            // Verify that the pressed key isn't CTRL or any non-numeric digit
+                            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                            {
+                                e.Handled = true;
+                            }
+
+
+
+                            // If you want, you can allow decimal (float) numbers
+                            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                            {
+                                e.Handled = true;
+                            }
+                        };
+                    }
 
                     addBtn.Location = new Point(20, 80 + i * 40);
                     this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
                     this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
                     this.Size = new Size(this.Size.Width, 200 + i * 40);
-       
                     this.Controls.Add(textBox);
                     LabelList.Add(label);
                     TextBoxList.Add(textBox);
                     i++;
                 }
-            
-               
+
+
             }
 
         }

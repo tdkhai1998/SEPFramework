@@ -51,6 +51,28 @@ namespace SEPFramework
                 textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
                 textBox.Name = col.Name;
 
+                if (col.ReadOnly)
+                {
+                    textBox.ReadOnly = true;
+                }
+                if (validate.IsNumericType(col.Type.Name))
+                {
+                    textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
+                    {
+                        // Verify that the pressed key isn't CTRL or any non-numeric digit
+                        if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                        {
+                            e.Handled = true;
+                        }
+
+                        // If you want, you can allow decimal (float) numbers
+                        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                        {
+                            e.Handled = true;
+                        }
+                    };
+                }
+
                 this.Controls.Add(textBox);
 
                 updateBtn.Location = new Point(20, 80 + i * 40);
@@ -78,7 +100,7 @@ namespace SEPFramework
                 newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
             }
 
-            table.Update(table.Rows[CurrentRow],newRow);
+            table.Update(table.Rows[CurrentRow], newRow);
             table.Refresh();
             done();
         }
@@ -91,6 +113,6 @@ namespace SEPFramework
                 textBox.Size = newSize;
             }
         }
-    
+
     }
 }

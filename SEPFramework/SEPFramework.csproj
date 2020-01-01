@@ -63,6 +63,11 @@
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlCommonQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlQueryFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\UpdateQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\DeleteQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\InsertQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerCommonQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerQueryFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\UpdateQuery.cs" />
     <Compile Include="src\Database\Table\Attribute.cs" />
     <Compile Include="src\Database\Table\Column.cs" />
     <Compile Include="src\Database\Connection\CommonConnection.cs" />
@@ -116,6 +121,7 @@
     <Compile Include="src\Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Validate\validate.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
