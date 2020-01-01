@@ -68,7 +68,7 @@
     <Compile Include="k.Designer.cs">
       <DependentUpon>k.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\Forms\MainForm.Designer.cs">
@@ -76,17 +76,17 @@
     </Compile>
     <Compile Include="src\Container\ConfigContainer.cs" />
     <Compile Include="src\Container\Container.cs" />
-    <Compile Include="src\Database\Connection\ConnectionFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\DeleteQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\InsertQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlCommonQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlQueryFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\UpdateQuery.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\DeleteQuery.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\InsertQuery.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerCommonQuery.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerQueryFactory.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\UpdateQuery.cs" />
+    <Compile Include="src\Forms\CreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\CreateForm.Designer.cs">
+      <DependentUpon>CreateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Database\Table\Attribute.cs" />
     <Compile Include="src\Database\Table\Column.cs" />
     <Compile Include="src\Database\Connection\CommonConnection.cs" />
@@ -112,23 +112,11 @@
       <DependentUpon>ReadForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\FormInterface\IUpdateForm.cs" />
-    <Compile Include="src\Members\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Members\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Members\Member.cs" />
     <Compile Include="src\Members\MemberShip.cs" />
     <Compile Include="src\Database\Connection\MysqlConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Members\Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Members\Register.Designer.cs">
-      <DependentUpon>Register.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Members\Role.cs" />
     <Compile Include="src\Database\Table\Row.cs" />
     <Compile Include="src\Database\Connection\SqlServerConnection.cs" />
@@ -140,8 +128,10 @@
     <Compile Include="src\Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Validate\validate.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="k.resx">
+      <DependentUpon>k.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -156,22 +146,14 @@
     <EmbeddedResource Include="src\Forms\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\BaseForm.resx">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ReadForm.resx">
       <DependentUpon>ReadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Members\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\Members\Register.resx">
-      <DependentUpon>Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="src\Forms\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,7 +163,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="src\ClassDiagram.cd" />
+    <None Include="src\ClassDiagram1.cd" />
     <None Include="users.json" />
   </ItemGroup>
   <ItemGroup>

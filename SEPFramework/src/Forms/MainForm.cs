@@ -9,29 +9,42 @@ namespace SEPFramework
         private Database database;
         public MainForm()
         {
-            InitializeComponent();
-            this.database = database;
+           InitializeComponent();
+            this.database = SEPFramework.Container.Create<Database>();
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.button1.Enabled = false;
             this.database.Connection.Connect();
             this.database.LoadData();
             List<string> list = this.database.GetTableNames();
-            this.tableList.Items.Clear();
+            this.comboBox1.Items.Clear();
             for (int i = 0; i < list.Count; i++)
             {
-                this.tableList.Items.Add(list[i]);
+                this.comboBox1.Items.Add(list[i]);
             }
-            tableList.SelectedIndex = 0;
         }
 
-        private void readBtn_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Table t = this.database.GetTableByName(this.tableList.SelectedItem.ToString());
-            SEPContainer.RegisterInstance<Table>(t);
-            IReadForm r = SEPContainer.Create<IReadForm>();
+            Table t = this.database.GetTableByName(this.comboBox1.SelectedItem.ToString());
+            SEPFramework.Container.RegisterInstance<Table>(t);
+            IReadForm r = SEPFramework.Container.Create<IReadForm>();
             this.Hide();
             ((BaseForm)r).FormClosed += (s, args) => this.Show();
             ((BaseForm)r).Show();
         }
 
-    
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
