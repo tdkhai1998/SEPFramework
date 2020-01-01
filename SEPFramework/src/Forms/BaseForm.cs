@@ -19,7 +19,7 @@ namespace SEPFramework
             SetUpUi();
             try
             {
-                this.table = SEPFramework.Container.Create<Table>();
+                this.table = SEPContainer.Create<Table>();
             }
             catch (Exception)
             {

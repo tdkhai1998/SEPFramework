@@ -7,10 +7,10 @@ namespace SEPFramework
     public partial class MainForm : Form
     {
         private Database database;
-        public MainForm()
+        public MainForm(Database database)
         {
-           InitializeComponent();
-            this.database = SEPFramework.Container.Create<Database>();
+            InitializeComponent();
+            this.database = database;
             
         }
 
@@ -35,8 +35,8 @@ namespace SEPFramework
         private void button2_Click(object sender, EventArgs e)
         {
             Table t = this.database.GetTableByName(this.comboBox1.SelectedItem.ToString());
-            SEPFramework.Container.RegisterInstance<Table>(t);
-            IReadForm r = SEPFramework.Container.Create<IReadForm>();
+            SEPContainer.RegisterInstance<Table>(t);
+            IReadForm r = SEPContainer.Create<IReadForm>();
             this.Hide();
             ((BaseForm)r).FormClosed += (s, args) => this.Show();
             ((BaseForm)r).Show();

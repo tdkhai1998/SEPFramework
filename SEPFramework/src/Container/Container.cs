@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace SEPFramework
 {
-    internal class Container
+    public sealed class SEPContainer
     {
-        private static Container instance = null;
+        private static SEPContainer instance = null;
         private static readonly object padlock = new object();
 
-       protected Container()
+        SEPContainer()
         {
             types.Add(typeof(IAddForm), typeof(AddForm));
             types.Add(typeof(IReadForm), typeof(ReadForm));
             types.Add(typeof(IUpdateForm), typeof(UpdateForm));
         }
 
-        protected static Container Instance
+        private static SEPContainer Instance
         {
             get
             {
@@ -27,7 +27,7 @@ namespace SEPFramework
                 {
                     if (instance == null)
                     {
-                        instance = new Container();
+                        instance = new SEPContainer();
                     }
                     return instance;
                 }
@@ -50,7 +50,7 @@ namespace SEPFramework
         }
 
 
-        protected void IRegisterType<TInterface, TImplementation>() where TImplementation : TInterface  
+        private void IRegisterType<TInterface, TImplementation>() where TImplementation : TInterface  
         {
             types[typeof(TInterface)] = typeof(TImplementation);
         }
