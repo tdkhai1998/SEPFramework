@@ -50,12 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="src\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Container\ConfigContainer.cs" />
     <Compile Include="src\Container\Container.cs" />
     <Compile Include="src\Database\Connection\ConnectionFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\InsertFactory.cs" />
@@ -128,7 +129,7 @@
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Validate\validate.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -169,7 +170,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="src\ClassDiagram.cd" />
-    <None Include="users.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
