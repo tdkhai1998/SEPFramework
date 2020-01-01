@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace SEPFramework { 
-    class DeleteQuery : MySqlCommonQuery
+    class SqlServerDeleteQuery : SqlServerCommonQuery
 {
     private string tableName;
     private Row row;
 
-    public DeleteQuery(string tableName, Row row)
+    public SqlServerDeleteQuery(string tableName, Row row)
     {
         this.tableName = tableName;
         this.row = row;
     }
 
-    public MySqlCommand getQuery()
+    public SqlCommand getQuery()
     {
 
-            MySqlCommand command = new MySqlCommand();
+            SqlCommand command = new SqlCommand();
           
                 List<String> fields = row.Attributes.Keys.ToList();
                 List<Attribute> values = row.Attributes.Values.ToList(); 

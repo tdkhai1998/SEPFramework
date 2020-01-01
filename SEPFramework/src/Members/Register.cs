@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SEPFramework
+namespace SEPFramework.src.Members
 {
-    public partial class Form2 : SEPFramework.CreateForm
+    public partial class Register : Form
     {
-        public Form2()
+        public Register()
         {
             InitializeComponent();
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -60,14 +60,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SEPFramewor.Role">
-    <Position X="10" Y="5.25" Width="1.5" />
+    <Position X="9.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Members\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEPFramework.SqlServer">
-    <Position X="2" Y="0.75" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAABAAAAAAAAAAAABIIAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Database\Connection\SqlServerConnection.cs</FileName>
@@ -76,8 +76,8 @@
   <Class Name="SEPFramework.MainForm">
     <Position X="6.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAgAABQAACAAAACAAAYAAQAAHAAAAAAAAA=</HashCode>
-      <FileName>src\Forms\MainForm.cs</FileName>
+      <HashCode>BEAAAAAAACAAAABAAACAAAACAAAQAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SEPFramework.BaseForm">
