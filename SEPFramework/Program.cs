@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-
-namespace SEPFramework
+using SEPFramework;
+namespace k
 {
     static class Program
     {
@@ -17,10 +17,10 @@ namespace SEPFramework
 
             ////CommonConnection connection = new SqlServer(@"DESKTOP-FRPO8I4\SQLEXPRESS", "testDB", "dffd", "sfd", 1433);
             //CommonConnection connection = new SqlServer(@"DESKTOP-FRPO8I4\SQLEXPRESS", "testDB", "", "", 1433);
+     
+            Container.RegisterInstance<CommonConnection>(connection);
 
-            SEPContainer.RegisterInstance<CommonConnection>(connection);
-            Type i = typeof(IAddForm);
-            Application.Run(new MainForm(SEPContainer.Create<Database>()));
+            Application.Run(new MainForm());
         }
     }
 }

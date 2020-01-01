@@ -20,15 +20,15 @@ namespace SEPFramework
 
         private void DataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            SEPContainer.RegisterInstance<int>(e.RowIndex);
-            IUpdateForm r = SEPContainer.Create<IUpdateForm>();
+            SEPFramework.Container.RegisterInstance<int>(e.RowIndex);
+            IUpdateForm r = SEPFramework.Container.Create<IUpdateForm>();
             ((BaseForm)r).done = this.Done;
             ((BaseForm)r).ShowDialog();
         }
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            IAddForm r = SEPContainer.Create<IAddForm>();
+            IAddForm r = SEPFramework.Container.Create<IAddForm>();
             ((BaseForm)r).done = this.Done;
             ((BaseForm)r).ShowDialog();
         }
@@ -36,8 +36,8 @@ namespace SEPFramework
         private void button2_Click(object sender, System.EventArgs e)
         {
             if (this.dataGridView1.SelectedCells.Count <= 0) return;
-            SEPContainer.RegisterInstance<int>(this.dataGridView1.SelectedCells[0].RowIndex);
-            IUpdateForm r = SEPContainer.Create<IUpdateForm>();
+            SEPFramework.Container.RegisterInstance<int>(this.dataGridView1.SelectedCells[0].RowIndex);
+            IUpdateForm r = SEPFramework.Container.Create<IUpdateForm>();
             ((BaseForm)r).done = this.Done;
             ((BaseForm)r).ShowDialog();
         }
