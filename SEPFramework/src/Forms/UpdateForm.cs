@@ -34,6 +34,7 @@ namespace SEPFramework
             TextBoxList.Clear();
             LabelList.Clear();
             int i = 0;
+            Size textBoxSize = new Size(this.Width - 320, 20);
             foreach (Column col in table.Columns)
             {
                 Label label = new Label();
@@ -44,11 +45,12 @@ namespace SEPFramework
                 this.Controls.Add(label);
 
                 TextBox textBox = new TextBox();
-                textBox.Size = new Size(300, 20);
+                textBox.Size = textBoxSize;
                 textBox.Location = new Point(230, 20 + i * 40);
                 textBox.Parent = this;
                 textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
                 textBox.Name = col.Name;
+
                 if (col.ReadOnly)
                 {
                     textBox.ReadOnly = true;
@@ -70,7 +72,14 @@ namespace SEPFramework
                         }
                     };
                 }
+
                 this.Controls.Add(textBox);
+
+                updateBtn.Location = new Point(20, 80 + i * 40);
+                this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
+                this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
+                this.Size = new Size(this.Size.Width, 200 + i * 40);
+
 
                 LabelList.Add(label);
                 TextBoxList.Add(textBox);
@@ -91,9 +100,19 @@ namespace SEPFramework
                 newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
             }
 
-            table.Update(table.Rows[CurrentRow],newRow);
+            table.Update(table.Rows[CurrentRow], newRow);
             table.Refresh();
             done(CurrentRow);
         }
+
+        private void UpdateForm_SizeChanged(object sender, EventArgs e)
+        {
+            Size newSize = new Size(this.Width - 320, 20);
+            foreach (Control textBox in TextBoxList)
+            {
+                textBox.Size = newSize;
+            }
+        }
+
     }
 }
