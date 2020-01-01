@@ -10,9 +10,9 @@ namespace SEPFramework
 {
     public partial class UpdateForm : SEPFramework.BaseForm, IUpdateForm
     {
-        List<Control> LabelList = new List<Control>();
-        List<Control> TextBoxList = new List<Control>();
-        int CurrentRow;
+        readonly List<Control> LabelList = new List<Control>();
+        readonly List<Control> TextBoxList = new List<Control>();
+        readonly int CurrentRow;
         public UpdateForm(Table table, int CurrentRow) : base(table)
         {
             InitializeComponent();
@@ -37,25 +37,29 @@ namespace SEPFramework
             Size textBoxSize = new Size(this.Width - 320, 20);
             foreach (Column col in table.Columns)
             {
-                Label label = new Label();
-                label.Text = col.Name;
-                label.Size = new Size(100, 20);
-                label.Location = new Point(20, 20 + i * 40);
-                label.Parent = this;
+                Label label = new Label
+                {
+                    Text = col.Name,
+                    Size = new Size(100, 20),
+                    Location = new Point(20, 20 + i * 40),
+                    Parent = this
+                };
                 this.Controls.Add(label);
 
-                TextBox textBox = new TextBox();
-                textBox.Size = textBoxSize;
-                textBox.Location = new Point(230, 20 + i * 40);
-                textBox.Parent = this;
-                textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
-                textBox.Name = col.Name;
+                TextBox textBox = new TextBox
+                {
+                    Size = textBoxSize,
+                    Location = new Point(230, 20 + i * 40),
+                    Parent = this,
+                    Text = table.Rows[CurrentRow][col.Name].ToString(),
+                    Name = col.Name
+                };
 
                 if (col.ReadOnly)
                 {
                     textBox.ReadOnly = true;
                 }
-                if (validate.IsNumericType(col.Type.Name))
+                if (SEPFramework.Validate.IsNumericType(col.Type.Name))
                 {
                     textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
                     {
@@ -64,7 +68,6 @@ namespace SEPFramework
                         {
                             e.Handled = true;
                         }
-
                         // If you want, you can allow decimal (float) numbers
                         if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
                         {
@@ -74,25 +77,23 @@ namespace SEPFramework
                 }
 
                 this.Controls.Add(textBox);
-
-                updateBtn.Location = new Point(20, 80 + i * 40);
+                this.updateBtn.Location = new Point(20, 80 + i * 40);
                 this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
                 this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
                 this.Size = new Size(this.Size.Width, 200 + i * 40);
-                LabelList.Add(label);
-                TextBoxList.Add(textBox);
+                this.LabelList.Add(label);
+                this.TextBoxList.Add(textBox);
                 i++;
             }
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click(object sender, EventArgs e)
         {
             Row newRow = table.Rows[CurrentRow].Clone();
             for (int i = 0; i < TextBoxList.Count; i++)
             {
                 newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
             }
-
             table.Update(table.Rows[CurrentRow], newRow);
             table.Refresh();
             done(CurrentRow);

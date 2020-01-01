@@ -128,7 +128,7 @@
     <Compile Include="src\Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Validate\validate.cs" />
+    <Compile Include="src\Validate\Validate.cs" />
     <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
