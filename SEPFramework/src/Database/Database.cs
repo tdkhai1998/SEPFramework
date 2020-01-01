@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace SEPFramework
@@ -56,11 +57,13 @@ namespace SEPFramework
 
         public void LoadData()
         {
+
             List<string> tableNames = Connection.getListTableName();
             foreach (string tableName in tableNames)
             {
+
                 DataTable data = Connection.getTable(tableName);
-                Table table = new Table(Create, Read, Update, Delete, data.TableName);
+                Table table = new Table(Create, Read, Update, Delete, tableName);
                 DataTableToTable(data, table);
                 table.dataTable = data;
                 tables.Add(table.Name, table);
@@ -77,10 +80,23 @@ namespace SEPFramework
             table.Columns.Clear();
             table.Rows.Clear();
             table.dataTable = data;
-            foreach (DataColumn col in data.Columns)
+            if (data.Columns.Count == 0)
             {
-                table.Columns.Add(new Column(col.ColumnName, col.DataType, isColumnReadOnly(col)));
+                Console.WriteLine("data rong");
+                List<Column> cols = Connection.getListColByTableName(table.Name);
+                foreach (Column col in cols)
+                {
+                    table.Columns.Add(col);
+                }
+
             }
+            else
+                foreach (DataColumn col in data.Columns)
+                {
+                    table.Columns.Add(new Column(col.ColumnName, col.DataType, isColumnReadOnly(col)));
+                }
+
+            Console.WriteLine(table.Columns.Count);
             foreach (DataRow row in data.Rows)
             {
                 Row r = table.CreateEmptyRow();

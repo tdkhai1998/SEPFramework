@@ -76,6 +76,11 @@ namespace SEPFramework
             throw new NotImplementedException();
         }
 
+        public override List<Column> getListColByTableName(string tableName)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<string> getListTableName()
         {
             DataTable schema = connection.GetSchema("Tables");

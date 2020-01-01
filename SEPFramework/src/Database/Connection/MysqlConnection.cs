@@ -96,13 +96,24 @@ namespace SEPFramework
         {
             List<string> tableList = new List<string>();
             var stm = "show tables";
-            var cmd = new MySqlCommand(stm, connection);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            Console.WriteLine(connection.State);
+            if(connection.State.ToString() == "Open")
             {
-                tableList.Add(rdr[0].ToString());
+                var cmd = new MySqlCommand(stm, connection);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    tableList.Add(rdr[0].ToString());
+                }
+                rdr.Close();
             }
-            rdr.Close();
+            else
+            {
+                MessageBox.Show("Connection has been closed !");
+            }
+
+
+     
             return tableList;
         }
 
@@ -122,5 +133,59 @@ namespace SEPFramework
         }
 
 
+        private Type getType(string typeString)
+        {
+            switch (typeString)
+            {
+                case "nvarchar":
+                case "nchar":
+                case "ntext":
+                case "text":
+                case "varchar":
+                    return typeof(String);
+                case "int(11)":
+                    return typeof(Int16);
+                case "Int32":
+                    return typeof(Int32);
+                case "Int16":
+                    return typeof(Int16);
+                case "float":
+                case "double":
+                    return typeof(Double);
+                case "datetime":
+                    return typeof(DateTime);
+                case "image":
+                    return typeof(Byte[]);
+                case "real":
+                    return typeof(Single);
+                case "tinyint":
+                case "binary":
+                    return typeof(Byte);
+                case "money":
+                    return typeof(Decimal);
+                default:
+                    return typeof(Nullable);
+            }
+        }
+
+        public override List<Column> getListColByTableName(string tableName)
+        {
+            List<Column> colList = new List<Column>();
+            var stm = "show columns from " + tableName;
+            var cmd = new MySqlCommand(stm, connection);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Console.WriteLine(rdr[0]);
+                //type
+                Console.WriteLine(rdr[1]);
+               
+                Column col = new Column(rdr[0].ToString(), getType(rdr[1].ToString()),false);
+                colList.Add(col);
+            }
+            Console.WriteLine(colList.Count);
+            rdr.Close();
+            return colList;
+        }
     }
 }
