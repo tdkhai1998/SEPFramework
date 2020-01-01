@@ -58,7 +58,24 @@ namespace SEPFramework
                     textBox.Location = new Point(230, 20 + i * 40);
                     textBox.Parent = this;
                     textBox.Name = col.Name;
+                    if (validate.IsNumericType(col.Type.Name))
+                    {
+                        textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
+                        {
+                            // Verify that the pressed key isn't CTRL or any non-numeric digit
+                            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                            {
+                                e.Handled = true;
+                            }
 
+                            // If you want, you can allow decimal (float) numbers
+                            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                            {
+                                e.Handled = true;
+                            }
+                        };
+                    }
+                    
                     this.Controls.Add(textBox);
                     LabelList.Add(label);
                     TextBoxList.Add(textBox);

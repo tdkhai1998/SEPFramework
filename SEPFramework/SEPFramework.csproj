@@ -50,24 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="g.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="g.Designer.cs">
-      <DependentUpon>g.cs</DependentUpon>
-    </Compile>
-    <Compile Include="k.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="k.Designer.cs">
-      <DependentUpon>k.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,12 +68,6 @@
     <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerCommonQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerQueryFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\SqlServer\UpdateQuery.cs" />
-    <Compile Include="src\Forms\CreateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Forms\CreateForm.Designer.cs">
-      <DependentUpon>CreateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Database\Table\Attribute.cs" />
     <Compile Include="src\Database\Table\Column.cs" />
     <Compile Include="src\Database\Connection\CommonConnection.cs" />
@@ -139,6 +115,7 @@
     <Compile Include="src\Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Validate\validate.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
