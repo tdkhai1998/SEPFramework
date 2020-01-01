@@ -27,7 +27,7 @@ namespace SEPFramework {
                 command.CommandText = "delete from " + tableName + " where " + this.createParamsDeleteString(fields);
                 for (int i = 0; i < fields.Count; i++)
                 {
-                    command.Parameters.AddWithValue("@param" + i, values[i]);
+                    command.Parameters.AddWithValue("@param" + i, values[i].Value);
                 }
 
             return command;

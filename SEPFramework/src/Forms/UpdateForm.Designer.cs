@@ -33,9 +33,9 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(27, 494);
+            this.updateBtn.Location = new System.Drawing.Point(27, 479);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(114, 38);
+            this.updateBtn.Size = new System.Drawing.Size(144, 53);
             this.updateBtn.TabIndex = 0;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = true;
@@ -48,6 +48,7 @@
             this.Controls.Add(this.updateBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UpdateForm";
+            this.Text = "UpdateForm";
             this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.ResumeLayout(false);
 
