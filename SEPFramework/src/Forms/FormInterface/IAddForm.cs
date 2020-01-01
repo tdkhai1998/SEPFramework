@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SEPFramework
 {
-    interface IAddForm
+    public interface IAddForm
     {
 
     }

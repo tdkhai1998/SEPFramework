@@ -22,8 +22,6 @@ namespace SEPFramework
             InitializeComponent();
             if (table != null)
                 this.dataGridView.DataSource = table.dataTable;
-
-           
         }
 
         public void setFocusRow(int rowIndex)
@@ -32,40 +30,29 @@ namespace SEPFramework
             {
                 this.dataGridView.Rows.RemoveAt(row.Index);
             }
-            //foreach (DataGridViewCell cell in this.dataGridView.SelectedCells)
-            //{
-            //    this.dataGridView. = "";
-            //}
             this.dataGridView.ClearSelection();
             this.dataGridView.CurrentCell = null;
-
             this.dataGridView.Rows[rowIndex].Selected = true;
             this.dataGridView.Rows[rowIndex].Cells[0].Selected = true;
-
             this.dataGridView.FirstDisplayedScrollingRowIndex = this.dataGridView.SelectedRows[0].Index;
-
-
         }
 
         private void addBtn_Click(object sender, System.EventArgs e)
         {
-            IAddForm r = SEPContainer.Create<IAddForm>();
-            ((BaseForm)r).done = this.Done;
-            ((BaseForm)r).ShowDialog();
+            BaseForm r = (BaseForm) MyContainer.Create<IAddForm>();
+            r.done = this.Done;
+            r.ShowDialog();
         }
 
         private void updateBtn_Click(object sender, System.EventArgs e)
         {
             if (this.dataGridView.SelectedCells.Count <= 0) return;
-            SEPContainer.RegisterInstance<int>(this.dataGridView.SelectedCells[0].RowIndex);
-            IUpdateForm r = SEPContainer.Create<IUpdateForm>();
-            ((BaseForm)r).done = this.Done;
-            ((BaseForm)r).ShowDialog();
+            MyContainer.RegisterInstance<int>(this.dataGridView.SelectedCells[0].RowIndex);
+            BaseForm r = (BaseForm)MyContainer.Create<IUpdateForm>();
+            r.done = this.Done;
+            r.ShowDialog();
         }
-        //private void Done()
-        //{
-        //    this.dataGridView.DataSource = table.dataTable;
-        //}
+
         private void Done(int rowFocus)
         {
             this.dataGridView.DataSource = table.dataTable;
@@ -83,10 +70,10 @@ namespace SEPFramework
 
         private void DataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SEPContainer.RegisterInstance<int>(e.RowIndex);
-            IUpdateForm r = SEPContainer.Create<IUpdateForm>();
-            ((BaseForm)r).done = this.Done;
-            ((BaseForm)r).ShowDialog();
+            MyContainer.RegisterInstance<int>(e.RowIndex);
+            BaseForm r = (BaseForm)MyContainer.Create<IUpdateForm>();
+            r.done = this.Done;
+            r.ShowDialog();
         }
 
         private void dataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -96,7 +83,6 @@ namespace SEPFramework
 
         private void ReadForm_SizeChanged(object sender, EventArgs e)
         {
-
             dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height+ 20);

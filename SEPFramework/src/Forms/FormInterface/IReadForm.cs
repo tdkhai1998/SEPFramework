@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    interface IReadForm
+    public interface IReadForm
     {
     }
 }

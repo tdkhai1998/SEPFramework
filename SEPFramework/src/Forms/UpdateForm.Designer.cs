@@ -53,7 +53,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UpdateForm";
             this.Text = "UpdateForm";
-            this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.SizeChanged += new System.EventHandler(this.UpdateForm_SizeChanged);
             this.ResumeLayout(false);
 

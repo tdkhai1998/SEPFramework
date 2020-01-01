@@ -79,17 +79,10 @@ namespace SEPFramework
                 this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
                 this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
                 this.Size = new Size(this.Size.Width, 200 + i * 40);
-
-
                 LabelList.Add(label);
                 TextBoxList.Add(textBox);
                 i++;
             }
-        }
-
-        private void UpdateForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void updateBtn_Click(object sender, EventArgs e)

@@ -7,10 +7,10 @@ namespace SEPFramework
     public partial class MainForm : Form
     {
         private Database database;
-        public MainForm(Database database)
+        public MainForm()
         {
             InitializeComponent();
-            this.database = database;
+            this.database = MyContainer.Create<Database>();
             this.database.Connection.Connect();
             this.database.LoadData();
             List<string> list = this.database.GetTableNames();
@@ -25,11 +25,11 @@ namespace SEPFramework
         private void readBtn_Click(object sender, EventArgs e)
         {
             Table t = this.database.GetTableByName(this.tableList.SelectedItem.ToString());
-            SEPContainer.RegisterInstance<Table>(t);
-            IReadForm r = SEPContainer.Create<IReadForm>();
+            MyContainer.RegisterInstance<Table>(t);
+            BaseForm r = (BaseForm) MyContainer.Create<IReadForm>();
             this.Hide();
-            ((BaseForm)r).FormClosed += (s, args) => this.Show();
-            ((BaseForm)r).Show();
+            r.FormClosed += (s, args) => this.Show();
+            r.Show();
         }
 
     

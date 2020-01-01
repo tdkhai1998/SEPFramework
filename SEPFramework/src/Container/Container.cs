@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace SEPFramework
 {
-    public sealed class SEPContainer
+    internal class MyContainer
     {
-        private static SEPContainer instance = null;
+        private static MyContainer instance = null;
         private static readonly object padlock = new object();
 
-        SEPContainer()
+        MyContainer()
         {
             types.Add(typeof(IAddForm), typeof(AddForm));
             types.Add(typeof(IReadForm), typeof(ReadForm));
             types.Add(typeof(IUpdateForm), typeof(UpdateForm));
         }
 
-        private static SEPContainer Instance
+        private static MyContainer Instance
         {
             get
             {
@@ -27,7 +27,7 @@ namespace SEPFramework
                 {
                     if (instance == null)
                     {
-                        instance = new SEPContainer();
+                        instance = new MyContainer();
                     }
                     return instance;
                 }
