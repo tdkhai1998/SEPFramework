@@ -7,5 +7,5 @@
     public delegate bool UpdateAction(string nameTable, Row row, Row newRow);
 
     public delegate bool DeleteAction(string nameTable, Row row);
-    public delegate void Done();
+    public delegate void Done(int rowFocus);
 }

@@ -96,9 +96,9 @@ namespace SEPFramework
 
             table.Create(newRow);
             table.Refresh();
-            done();
-        }
 
+            done(table.Rows.Count-1);
+        }
 
     }
 }

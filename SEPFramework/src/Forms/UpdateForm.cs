@@ -93,7 +93,7 @@ namespace SEPFramework
 
             table.Update(table.Rows[CurrentRow],newRow);
             table.Refresh();
-            done();
+            done(CurrentRow);
         }
     }
 }
