@@ -11,6 +11,7 @@ namespace SEPFramework
     public class Mysql : CommonConnection
     {
         MySqlConnection connection = new MySqlConnection();
+        
         public Mysql(string host, string dbname, string username, string pass, int port) : base(host, dbname, username, pass, port)
         {
 
@@ -18,7 +19,7 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("insert", tableName, row,null).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).createMySql(tableName, row, null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -35,7 +36,7 @@ namespace SEPFramework
         }
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("update", tableName, row, newRow).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.update).createMySql(tableName, row, newRow).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -54,7 +55,7 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
-            MySqlCommand cmd = MySqlQueryFactory.createQuery("delete", tableName, row,null).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).createMySql(tableName, row, null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
