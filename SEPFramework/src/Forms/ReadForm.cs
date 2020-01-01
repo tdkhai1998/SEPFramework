@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -15,7 +15,8 @@ namespace SEPFramework
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             deleteBtn.Location = new Point(updateBtn.Location.X + updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
-           // this.setFocusRow(0);
+            if (table.Rows.Count > 0)
+                this.setFocusRow(0);
         }
         public ReadForm()
         {
@@ -61,6 +62,11 @@ namespace SEPFramework
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có row được chọn.");
+                return;
+            }
             table.Delete(table.Rows[currentRow]);
             table.Refresh();
             Done(currentRow-1);

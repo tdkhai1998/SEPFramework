@@ -15,7 +15,7 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            SqlCommand cmd = SqlServerQueryFactory.createQuery("insert", tableName, row, null).getQuery();
+            SqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).createSqlServer(tableName, row, null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -60,7 +60,7 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
-            SqlCommand cmd = SqlServerQueryFactory.createQuery("delete", tableName, row, null).getQuery();
+            SqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).createSqlServer(tableName, row, null).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -73,6 +73,11 @@ namespace SEPFramework
                 MessageBox.Show("Lỗi");
                 return false;
             }
+            throw new NotImplementedException();
+        }
+
+        public override List<Column> getListColByTableName(string tableName)
+        {
             throw new NotImplementedException();
         }
 
@@ -105,7 +110,7 @@ namespace SEPFramework
 
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            SqlCommand cmd = SqlServerQueryFactory.createQuery("update", tableName, row, newRow).getQuery();
+            SqlCommand cmd = QueryFactory.GetFactory(QueryType.update).createSqlServer(tableName, row, newRow).getQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
