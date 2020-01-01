@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace SEPFramework
 {
@@ -14,7 +15,19 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = SqlServerQueryFactory.createQuery("insert", tableName, row, null).getQuery();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = connection;
+            try
+            {
+                int check = cmd.ExecuteNonQuery();
+                return check != 1;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+                return false;
+            }
         }
 
         public override bool Connect()
@@ -47,6 +60,19 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
+            SqlCommand cmd = SqlServerQueryFactory.createQuery("delete", tableName, row, null).getQuery();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = connection;
+            try
+            {
+                int check = cmd.ExecuteNonQuery();
+                return check != 1;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+                return false;
+            }
             throw new NotImplementedException();
         }
 
@@ -79,7 +105,19 @@ namespace SEPFramework
 
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = SqlServerQueryFactory.createQuery("update", tableName, row, newRow).getQuery();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = connection;
+            try
+            {
+                int check = cmd.ExecuteNonQuery();
+                return check != 1;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+                return false;
+            }
         }
     }
 }

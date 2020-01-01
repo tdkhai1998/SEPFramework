@@ -49,6 +49,10 @@ namespace SEPFramework
                 textBox.Parent = this;
                 textBox.Text = table.Rows[CurrentRow][col.Name].ToString();
                 textBox.Name = col.Name;
+                if (col.ReadOnly)
+                {
+                    textBox.ReadOnly = true;
+                }
                 this.Controls.Add(textBox);
 
                 LabelList.Add(label);
