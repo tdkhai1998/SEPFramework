@@ -60,7 +60,7 @@ namespace SEPFramework
             foreach (string tableName in tableNames)
             {
                 DataTable data = Connection.getTable(tableName);
-                Table table = new Table(Create, Read, Update, Delete, data.TableName);
+                Table table = new Table(Create, Read, Update, Delete, tableName);
                 DataTableToTable(data, table);
                 table.dataTable = data;
                 tables.Add(table.Name, table);
