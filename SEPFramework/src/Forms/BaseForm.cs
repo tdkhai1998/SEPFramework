@@ -29,5 +29,10 @@ namespace SEPFramework
 
         }
         protected virtual void SetUpUi() {  }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,6 +37,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(38, 104);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -94,6 +95,7 @@
             // ReadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 719);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.updateBtn);
@@ -102,6 +104,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ReadForm";
             this.Text = "ReadForm";
+            this.SizeChanged += new System.EventHandler(this.ReadForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

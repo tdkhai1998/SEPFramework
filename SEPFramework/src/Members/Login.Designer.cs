@@ -33,7 +33,7 @@
             this.loginBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.register = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -85,16 +85,17 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "or";
             // 
-            // label2
+            // register
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(91, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "create an account";
+            this.register.AutoSize = true;
+            this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.register.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.register.Location = new System.Drawing.Point(91, 56);
+            this.register.Name = "register";
+            this.register.Size = new System.Drawing.Size(137, 20);
+            this.register.TabIndex = 6;
+            this.register.Text = "create an account";
+            this.register.Click += new System.EventHandler(this.register_Click);
             // 
             // label3
             // 
@@ -122,7 +123,7 @@
             this.ClientSize = new System.Drawing.Size(462, 398);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.register);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.loginBtn);
@@ -142,7 +143,7 @@
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label register;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }

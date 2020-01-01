@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SEPFramework.src.Members
 {
-    public partial class Login : Form
+    public partial class Register : Form
     {
-        public Login()
+        public Register()
         {
             InitializeComponent();
         }
 
-        private void register_Click(object sender, EventArgs e)
+        private void login_Click(object sender, EventArgs e)
         {
 
         }

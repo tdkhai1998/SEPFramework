@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SEPFramework
@@ -10,12 +11,18 @@ namespace SEPFramework
         {
             InitializeComponent();
             this.dataGridView.DataSource = table.dataTable;
+            dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
+            addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
+            updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
+            deleteBtn.Location = new Point(updateBtn.Location.X + updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
         }
         public ReadForm()
         {
             InitializeComponent();
             if (table != null)
                 this.dataGridView.DataSource = table.dataTable;
+
+           
         }
 
 
@@ -59,6 +66,15 @@ namespace SEPFramework
         private void dataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             currentRow = e.RowIndex;
+        }
+
+        private void ReadForm_SizeChanged(object sender, EventArgs e)
+        {
+
+            dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
+            addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
+            updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height+ 20);
+            deleteBtn.Location = new Point(updateBtn.Location.X +updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
         }
     }
 }

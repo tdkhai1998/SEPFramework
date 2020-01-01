@@ -49,12 +49,13 @@
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 646);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(822, 646);
             this.Controls.Add(this.addBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddForm";
             this.Text = "AddForm";
+            this.SizeChanged += new System.EventHandler(this.AddForm_SizeChanged);
             this.ResumeLayout(false);
 
         }

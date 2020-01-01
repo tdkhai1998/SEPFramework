@@ -33,12 +33,16 @@
             // 
             // updateBtn
             // 
+            this.updateBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.Color.White;
             this.updateBtn.Location = new System.Drawing.Point(27, 479);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(144, 53);
             this.updateBtn.TabIndex = 0;
             this.updateBtn.Text = "Update";
-            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.UseVisualStyleBackColor = false;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // UpdateForm
@@ -50,6 +54,7 @@
             this.Name = "UpdateForm";
             this.Text = "UpdateForm";
             this.Load += new System.EventHandler(this.UpdateForm_Load);
+            this.SizeChanged += new System.EventHandler(this.UpdateForm_SizeChanged);
             this.ResumeLayout(false);
 
         }
