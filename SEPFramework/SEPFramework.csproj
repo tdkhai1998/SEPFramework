@@ -75,6 +75,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Container\Container.cs" />
+    <Compile Include="src\Database\Connection\ConnectionFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\DeleteQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\InsertQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlCommonQuery.cs" />

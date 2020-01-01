@@ -33,9 +33,9 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(32, 581);
+            this.addBtn.Location = new System.Drawing.Point(32, 562);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(117, 37);
+            this.addBtn.Size = new System.Drawing.Size(161, 56);
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "Insert";
             this.addBtn.UseVisualStyleBackColor = true;

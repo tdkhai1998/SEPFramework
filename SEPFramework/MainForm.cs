@@ -11,17 +11,6 @@ namespace SEPFramework
         {
             InitializeComponent();
             this.database = database;
-            
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.button1.Enabled = false;
             this.database.Connection.Connect();
             this.database.LoadData();
             List<string> list = this.database.GetTableNames();
@@ -32,6 +21,12 @@ namespace SEPFramework
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+ 
         private void button2_Click(object sender, EventArgs e)
         {
             Table t = this.database.GetTableByName(this.comboBox1.SelectedItem.ToString());
