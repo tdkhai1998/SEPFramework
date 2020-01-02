@@ -19,13 +19,10 @@ namespace SEPFramework
             //CommonConnection connection = ConnectionFactory.createConnection("sqlserver", @"DESKTOP-FRPO8I4\SQLEXPRESS", "testDB", "", "", 1433);
 
             MyContainer.RegisterInstance<CommonConnection>(connection);
-<<<<<<< HEAD
             Role role = new Role();
             role.isAllowAdd = false;
             MyContainer.RegisterInstance<Role>(role);
-=======
      
->>>>>>> 8fccfeb428ed7e2d6a0c8b3da63886d3d88329c4
             Application.Run(new MainForm());
         }
     }
