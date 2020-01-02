@@ -11,6 +11,11 @@ namespace SEPFramework
         {
             InitializeComponent();
             this.dataGridView.DataSource = table.dataTable;
+            this.table.registerObserver(this.dataGridView);
+            dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
+            addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
+            updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
+            deleteBtn.Location = new Point(updateBtn.Location.X + updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             if (table.Rows.Count > 0)
                 this.SetFocusRow(0);
         }
@@ -18,7 +23,11 @@ namespace SEPFramework
         {
             InitializeComponent();
             if (table != null)
+            {
                 this.dataGridView.DataSource = table.dataTable;
+                this.table.registerObserver(this.dataGridView);
+
+            }
         }
 
         public void SetFocusRow(int rowIndex)
@@ -53,8 +62,7 @@ namespace SEPFramework
 
         private void Done(int rowFocus)
         {
-            this.dataGridView.DataSource = table.dataTable;
-            this.SetFocusRow(rowFocus);
+            this.setFocusRow(rowFocus);
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -65,9 +73,9 @@ namespace SEPFramework
                 return;
             }
             table.Delete(table.Rows[currentRow]);
-            table.Refresh();
             Done(currentRow-1);
         }
+
         private void DataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= table.Rows.Count) return;
