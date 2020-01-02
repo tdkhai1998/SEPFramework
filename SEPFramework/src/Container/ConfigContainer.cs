@@ -16,5 +16,10 @@ namespace SEPFramework
         {
             MyContainer.RegisterInstance<CommonConnection>(conn);
         }
+
+        public static void RegisterMembership(CommonConnection conn)
+        {
+            MyContainer.RegisterInstance<CommonConnection>(conn);
+        }
     }
 }

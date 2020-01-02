@@ -8,13 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SEPFramework.src.Members
+namespace SEPFramework.Membership
 {
-    public partial class Register : Form
+    public partial class Register : MembershipBaseForm
     {
         public Register()
         {
             InitializeComponent();
+        }
+
+
+
+
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void login_Click(object sender, EventArgs e)

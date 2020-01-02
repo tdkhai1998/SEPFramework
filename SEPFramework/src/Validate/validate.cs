@@ -13,6 +13,7 @@ namespace SEPFramework
             switch (type)
             {
                 case "Int32":
+                case "Int16":
                     return true;
                 default:
                     return false;

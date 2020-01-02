@@ -81,22 +81,22 @@ namespace SEPFramework
         {
             table.Reset();
             table.dataTable = data;
-            if (data.Columns.Count == 0)
-            {
-                List<Column> cols = Connection.getListColByTableName(table.Name);
-                foreach (Column col in cols)
-                {
-                    table.Columns.Add(col);
-                    data.Columns.Add(col.Name, col.Type);
-                }
-            }
-            else
-            {
+            //if (data.Columns.Count == 0)
+            //{
+            //    List<Column> cols = Connection.getListColByTableName(table.Name);
+            //    foreach (Column col in cols)
+            //    {
+            //        table.Columns.Add(col);
+            //        data.Columns.Add(col.Name, col.Type);
+            //    }
+            //}
+            //else
+            //{
                 foreach (DataColumn col in data.Columns)
                 {
                     table.Columns.Add(new Column(col.ColumnName, col.DataType, IsColumnReadOnly(col)));
                 }
-            }
+            //}
             foreach (DataRow row in data.Rows)
             {
                 Row r = table.CreateEmptyRow();
