@@ -17,6 +17,7 @@ namespace SEPFramework
             types.Add(typeof(IAddForm), typeof(AddForm));
             types.Add(typeof(IReadForm), typeof(ReadForm));
             types.Add(typeof(IUpdateForm), typeof(UpdateForm));
+            instances.Add(typeof(Role), new Role());
         }
 
         private static MyContainer Instance
