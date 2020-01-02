@@ -21,9 +21,8 @@ namespace SEPFramework
 
             MyContainer.RegisterInstance<CommonConnection>(connection);
             Role role = new Role();
-            role.isAllowAdd = false;
             MyContainer.RegisterInstance<Role>(role);
-     
+            
             Application.Run(new Login());
         }
     }

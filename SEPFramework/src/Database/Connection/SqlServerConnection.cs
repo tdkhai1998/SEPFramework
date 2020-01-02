@@ -21,7 +21,7 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                return check != 1;
+                return check == 1;
             }
             catch
             {
@@ -67,7 +67,7 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                return check != 1;
+                return check == 1;
             }
             catch
             {
@@ -189,7 +189,7 @@ namespace SEPFramework
         }
 
 
-        public override bool Login(string username, string password)
+        public override DataTable Login(string username, string password)
         {
             throw new NotImplementedException();
         }
@@ -207,7 +207,7 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                return check != 1;
+                return check == 1;
             }
             catch
             {

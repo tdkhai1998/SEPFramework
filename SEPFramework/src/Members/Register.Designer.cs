@@ -35,7 +35,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
             this.pass = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.TextBox();
+            this.user = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label4
@@ -106,15 +106,16 @@
             // 
             this.pass.Location = new System.Drawing.Point(54, 242);
             this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(311, 26);
             this.pass.TabIndex = 10;
             // 
-            // id
+            // user
             // 
-            this.id.Location = new System.Drawing.Point(53, 164);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(311, 26);
-            this.id.TabIndex = 9;
+            this.user.Location = new System.Drawing.Point(53, 164);
+            this.user.Name = "user";
+            this.user.Size = new System.Drawing.Size(311, 26);
+            this.user.TabIndex = 9;
             // 
             // Register
             // 
@@ -129,7 +130,7 @@
             this.Controls.Add(this.Title);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.pass);
-            this.Controls.Add(this.id);
+            this.Controls.Add(this.user);
             this.Name = "Register";
             this.Text = "Register";
             this.ResumeLayout(false);
@@ -146,6 +147,6 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.TextBox pass;
-        private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.TextBox user;
     }
 }

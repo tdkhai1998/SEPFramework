@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.id = new System.Windows.Forms.TextBox();
+            this.user = new System.Windows.Forms.TextBox();
             this.pass = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
@@ -38,17 +38,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // id
+            // user
             // 
-            this.id.Location = new System.Drawing.Point(73, 143);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(311, 26);
-            this.id.TabIndex = 0;
+            this.user.Location = new System.Drawing.Point(73, 143);
+            this.user.Name = "user";
+            this.user.Size = new System.Drawing.Size(311, 26);
+            this.user.TabIndex = 0;
             // 
             // pass
             // 
             this.pass.Location = new System.Drawing.Point(74, 221);
             this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(311, 26);
             this.pass.TabIndex = 1;
             // 
@@ -129,7 +130,7 @@
             this.Controls.Add(this.Title);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.pass);
-            this.Controls.Add(this.id);
+            this.Controls.Add(this.user);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -139,7 +140,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.TextBox user;
         private System.Windows.Forms.TextBox pass;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label Title;

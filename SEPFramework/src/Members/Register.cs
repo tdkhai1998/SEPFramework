@@ -23,12 +23,23 @@ namespace SEPFramework.Membership
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-
+           bool success = database.Register(user.Text, pass.Text);
+            if (success)
+            {
+                MessageBox.Show("Đăng ký thành công !");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đăng ký thất bại !");
+            }
         }
 
         private void login_Click(object sender, EventArgs e)
         {
-
+      
+            this.Close();
+       
         }
     }
 }

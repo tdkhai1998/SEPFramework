@@ -25,7 +25,7 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                return check != 1;
+                return check == 1;
             }
             catch
             {
@@ -43,7 +43,7 @@ namespace SEPFramework
             {
                 int check = cmd.ExecuteNonQuery();
                 Console.WriteLine(check);
-                return check != 1;
+                return check == 1;
             }
             catch
             {
@@ -61,7 +61,7 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                return check != 1;
+                return check == 1;
             }
             catch
             {
@@ -135,59 +135,68 @@ namespace SEPFramework
 
         public override bool CreateMembershipTable()
         {
-            var stm0 = "CREATE TABLE account ( username VARCHAR NOT NULL , password VARCHAR NOT NULL )";
-            var stm1 = "CREATE TABLE role ( roleid INT NOT NULL , rolename VARCHAR NOT NULL )";
-            var stm2 = "CREATE TABLE account_role ( username VARCHAR NOT NULL , roleid INT NOT NULL )";
+            var stm0 = "CREATE TABLE IF NOT EXISTS account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)";
+            var stm1 = "CREATE TABLE IF NOT EXISTS  role ( roleid INT NOT NULL , rolename VARCHAR(255) NOT NULL)";
+            var stm2 = "CREATE TABLE IF NOT EXISTS  account_role ( username VARCHAR(255) NOT NULL, roleid INT NOT NULL)";
             List<String> stms = new List<String>();
             stms.Add(stm0);
             stms.Add(stm1);
             stms.Add(stm2);
-            for(int i = 0; i < 3; i++)
+            Console.WriteLine(connection.State.ToString());
+            int check = 0;
+            for (int i = 0; i < 3; i++)
             {
-                var cmd = new MySqlCommand(stms[i], connection);
-                int check = cmd.ExecuteNonQuery();
-                Console.WriteLine(check);
-                if(check == 0)
-                return false;
+                if (connection.State.ToString() == "Open")
+                {
+                    var cmd = new MySqlCommand(stms[i], connection);
+                    check = cmd.ExecuteNonQuery();
+                }
             }
+            if (check == 0)
+                return false;
             return true;
 
         }
 
-        public override bool Login(string username, string password)
+        public override DataTable Login(string username, string password)
         {
-            var stm = "SELECT * FROM account " + "WHERE username = " + username + " AND " + "password = " + password;
+            var stm = "SELECT * FROM account WHERE username = @param0 AND password = @param1";
             DataTable tb = new DataTable();
             var cmd = new MySqlCommand(stm, connection);
+            cmd.Parameters.AddWithValue("@param0", username);
+            cmd.Parameters.AddWithValue("@param1", password);
             MySqlDataReader rdr = cmd.ExecuteReader();
-            //if (rdr.HasRows)
-            //{
-            //    tb.Load(rdr);
-            //}
             tb.Load(rdr);
-
             rdr.Close();
-            if (tb.Rows.Count == 0)
+            if (tb.Rows.Count != 0)
             {
-                return false;
+                var stm2 = $"SELECT rolename from role, account_role where account_role.username = '{username}' and role.roleid = account_role.roleid";
+                MySqlDataAdapter rdr2 = new MySqlDataAdapter(stm2,connection);
+                DataTable roleTable = new DataTable();
+                rdr2.Fill(roleTable);
+                Console.WriteLine(roleTable.Rows.Count);
+                rdr2.Dispose();
+                return roleTable;
             }
-            else
-                return true;
+            return null;
         }
 
         public override bool Register(string username, string password)
         {
-            var stm = "INSERT INTO account VALUES (" + username + "," + password + ")";
+            var stm = "INSERT INTO account VALUES (@param0,@param1)";
             var cmd = new MySqlCommand(stm, connection);
+            cmd.Parameters.AddWithValue("@param0", username);
+            cmd.Parameters.AddWithValue("@param1", password);
             //if (rdr.HasRows)
             //{
             //    tb.Load(rdr);
             //}
+            Console.WriteLine(cmd.CommandText);
             try
             {
                 int check = cmd.ExecuteNonQuery();
                 Console.WriteLine(check);
-                return check != 1;
+                return check == 1;
             }
             catch
             {

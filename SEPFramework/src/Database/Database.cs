@@ -18,8 +18,8 @@ namespace SEPFramework
 
         public bool Create(string tableName, Row row)
         {
-            Connection.Add(tableName, row);
-            return true;
+
+            return Connection.Add(tableName, row); ;
         }
         public bool Read(Table table)
         {
@@ -33,13 +33,13 @@ namespace SEPFramework
 
         public bool Update(string tableName, Row row, Row newRow)
         {
-            Connection.Update(tableName, row, newRow);
-            return true;
+
+            return Connection.Update(tableName, row, newRow); ;
         }
         public bool Delete(string tableName, Row row)
         {
-            Connection.Delete(tableName, row);
-            return true;
+            
+            return Connection.Delete(tableName, row); ;
         }
 
         public Table GetTableByName(string tableName)
@@ -107,6 +107,26 @@ namespace SEPFramework
                 table.Rows.Add(r);
             }
             return table;
+        }
+
+        public List<string> Login(string username, string password)
+        {
+            List<string> roles = new List<string>();
+            DataTable tb = Connection.Login(username, password);
+            if(tb == null)
+            {
+                return null;
+            }
+            for(int i = 0; i < tb.Rows.Count; i++)
+            {
+                roles.Add(tb.Rows[i].ItemArray[0].ToString());
+            }
+            return roles;
+        }
+        public bool Register(string username, string password)
+        {
+
+            return Connection.Register(username, password); 
         }
     }
 }

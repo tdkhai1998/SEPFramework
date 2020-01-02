@@ -39,8 +39,8 @@ namespace SEPFramework
         public abstract bool CreateMembershipTable();
 
 
-        // select from account table
-        public abstract bool Login(string username, string password);
+        // select from account table / trả về role
+        public abstract DataTable Login(string username, string password);
 
         // insert into account table
         public abstract bool Register(string username, string password);
