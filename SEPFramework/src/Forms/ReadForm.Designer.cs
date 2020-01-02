@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new CustomDataGridView();
             this.addBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
@@ -111,7 +111,7 @@
 
         #endregion
 
-        public  System.Windows.Forms.DataGridView dataGridView;
+        public  CustomDataGridView dataGridView;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button deleteBtn;
