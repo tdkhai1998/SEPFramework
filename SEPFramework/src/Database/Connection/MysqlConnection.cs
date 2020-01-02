@@ -11,7 +11,7 @@ namespace SEPFramework
     public class Mysql : CommonConnection
     {
         MySqlConnection connection = new MySqlConnection();
-        
+
         public Mysql(string host, string dbname, string username, string pass, int port) : base(host, dbname, username, pass, port)
         {
 
@@ -32,7 +32,7 @@ namespace SEPFramework
                 MessageBox.Show("Lỗi");
                 return false;
             }
-           
+
         }
         public override bool Update(string tableName, Row row, Row newRow)
         {
@@ -70,7 +70,7 @@ namespace SEPFramework
             }
         }
 
-      
+
         public override bool Connect()
         {
             {
@@ -97,7 +97,7 @@ namespace SEPFramework
             List<string> tableList = new List<string>();
             var stm = "show tables";
             Console.WriteLine(connection.State);
-            if(connection.State.ToString() == "Open")
+            if (connection.State.ToString() == "Open")
             {
                 var cmd = new MySqlCommand(stm, connection);
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -113,7 +113,7 @@ namespace SEPFramework
             }
 
 
-     
+
             return tableList;
         }
 
@@ -133,10 +133,73 @@ namespace SEPFramework
             return tb;
         }
 
+        public override bool CreateMembershipTable()
+        {
+            var stm0 = "CREATE TABLE account ( username VARCHAR NOT NULL , password VARCHAR NOT NULL )";
+            var stm1 = "CREATE TABLE role ( roleid INT NOT NULL , rolename VARCHAR NOT NULL )";
+            var stm2 = "CREATE TABLE account_role ( username VARCHAR NOT NULL , roleid INT NOT NULL )";
+            List<String> stms = new List<String>();
+            stms.Add(stm0);
+            stms.Add(stm1);
+            stms.Add(stm2);
+            for(int i = 0; i < 3; i++)
+            {
+                var cmd = new MySqlCommand(stms[i], connection);
+                int check = cmd.ExecuteNonQuery();
+                Console.WriteLine(check);
+                if(check == 0)
+                return false;
+            }
+            return true;
+
+        }
+
+        public override bool Login(string username, string password)
+        {
+            var stm = "SELECT * FROM account " + "WHERE username = " + username + " AND " + "password = " + password;
+            DataTable tb = new DataTable();
+            var cmd = new MySqlCommand(stm, connection);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            //if (rdr.HasRows)
+            //{
+            //    tb.Load(rdr);
+            //}
+            tb.Load(rdr);
+
+            rdr.Close();
+            if (tb.Rows.Count == 0)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        public override bool Register(string username, string password)
+        {
+            var stm = "INSERT INTO account VALUES (" + username + "," + password + ")";
+            var cmd = new MySqlCommand(stm, connection);
+            //if (rdr.HasRows)
+            //{
+            //    tb.Load(rdr);
+            //}
+            try
+            {
+                int check = cmd.ExecuteNonQuery();
+                Console.WriteLine(check);
+                return check != 1;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+                return false;
+            }
+        }
+
 
         //private Type getType(string typeString)
         //{
-            
+
         //    switch (typeString.ToLower())
         //    {
         //        case "nvarchar":
@@ -181,7 +244,7 @@ namespace SEPFramework
         //        Console.WriteLine(rdr[0]);
         //        //type
         //        Console.WriteLine(rdr[1]);
-               
+
         //        Column col = new Column(rdr[0].ToString(), getType(rdr[1].ToString()),false);
         //        colList.Add(col);
         //    }

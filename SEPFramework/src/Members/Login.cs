@@ -16,6 +16,7 @@ namespace SEPFramework.Membership
         public Login()
         {
             InitializeComponent();
+            database.Connection.CreateMembershipTable();
         }
 
         private void register_Click(object sender, EventArgs e)

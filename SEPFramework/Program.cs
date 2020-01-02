@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEPFramework.Membership;
+using System;
 using System.Windows.Forms;
 
 namespace SEPFramework
@@ -20,7 +21,7 @@ namespace SEPFramework
 
             MyContainer.RegisterInstance<CommonConnection>(connection);
      
-            Application.Run(new MainForm());
+            Application.Run(new Login());
         }
     }
 }

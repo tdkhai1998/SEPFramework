@@ -30,5 +30,20 @@ namespace SEPFramework
 
         //public abstract List<Column> getListColByTableName(string tableName);
 
+
+        // create 'account' table + 'account_role' table + 'role' table 
+        // default 'account' table fields: username, password 
+        // default 'account_role' table fields: username, roleid
+        // default 'role' table fields: roleid, rolename
+
+        public abstract bool CreateMembershipTable();
+
+
+        // select from account table
+        public abstract bool Login(string username, string password);
+
+        // insert into account table
+        public abstract bool Register(string username, string password);
+
     }
 }

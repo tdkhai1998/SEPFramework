@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace SEPFramework
@@ -59,6 +58,7 @@ namespace SEPFramework
             }
         }
 
+ 
         public override bool Delete(string tableName, Row row)
         {
             SqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).createSqlServer(tableName, row, null).getQuery();
@@ -181,6 +181,22 @@ namespace SEPFramework
             rdr.Close();
             tb.TableName = tableName;
             return tb;
+        }
+
+        public override bool CreateMembershipTable()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public override bool Login(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Register(string username, string password)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool Update(string tableName, Row row, Row newRow)

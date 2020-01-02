@@ -12,7 +12,7 @@ namespace SEPFramework.Membership
 {
     public partial class MembershipBaseForm : Form
     {
-        Database database;
+        protected Database database;
         public MembershipBaseForm()
         {
             InitializeComponent();
