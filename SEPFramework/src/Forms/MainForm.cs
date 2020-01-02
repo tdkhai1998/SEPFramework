@@ -20,6 +20,9 @@ namespace SEPFramework
                 this.tableList.Items.Add(list[i]);
             }
             tableList.SelectedIndex = 0;
+
+            Role role = MyContainer.Create<Role>();
+            button2.Enabled = role.isAllowread;
         }
 
         private void readBtn_Click(object sender, EventArgs e)

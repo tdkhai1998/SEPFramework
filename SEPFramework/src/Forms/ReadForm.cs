@@ -7,11 +7,14 @@ namespace SEPFramework
     public partial class ReadForm : SEPFramework.BaseForm, IReadForm
     {
         int currentRow = -1;
+        Role role;
         public ReadForm(Table table) : base(table)
         {
             InitializeComponent();
+            role = MyContainer.Create<Role>();
             this.dataGridView.DataSource = table.dataTable;
             this.table.registerObserver(this.dataGridView);
+            addBtn.Enabled = role.isAllowAdd;
             dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
@@ -62,7 +65,7 @@ namespace SEPFramework
 
         private void Done(int rowFocus)
         {
-            this.setFocusRow(rowFocus);
+            this.SetFocusRow(rowFocus);
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -89,8 +92,9 @@ namespace SEPFramework
         {
             if (e.RowIndex < table.Rows.Count)
             {
-                updateBtn.Enabled = true;
-                deleteBtn.Enabled = true;
+              
+                    updateBtn.Enabled = role.isAllowDelete;
+                    deleteBtn.Enabled = role.isAllowUdate;
                 currentRow = e.RowIndex;
             }
             else

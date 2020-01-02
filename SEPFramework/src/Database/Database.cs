@@ -9,6 +9,8 @@ namespace SEPFramework
     {
         public readonly CommonConnection Connection;
         private readonly Dictionary<string, Table> tables = new Dictionary<string, Table>();
+
+
         public Database(CommonConnection connection)
         {
             this.Connection = connection;
