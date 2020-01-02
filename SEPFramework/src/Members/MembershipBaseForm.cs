@@ -10,22 +10,20 @@ using System.Windows.Forms;
 
 namespace SEPFramework.Membership
 {
-    public partial class Login : MembershipBaseForm
+    public partial class MembershipBaseForm : Form
     {
-    
-        public Login()
+        Database database;
+        public MembershipBaseForm()
         {
             InitializeComponent();
-        }
+            try
+            {
+                this.database = MyContainer.Create<Database>();
+            }
+            catch
+            {
 
-        private void register_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SEPFramework.src.Members
+﻿namespace SEPFramework.Membership
 {
     partial class Login
     {
@@ -65,6 +65,7 @@
             this.loginBtn.TabStop = false;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // Title
             // 

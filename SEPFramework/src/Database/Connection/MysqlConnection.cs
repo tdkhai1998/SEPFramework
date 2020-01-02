@@ -135,7 +135,7 @@ namespace SEPFramework
 
         private Type getType(string typeString)
         {
-            switch (typeString)
+            switch (typeString.ToLower())
             {
                 case "nvarchar":
                 case "nchar":
@@ -143,11 +143,11 @@ namespace SEPFramework
                 case "text":
                 case "varchar":
                     return typeof(String);
-                case "int(11)":
-                    return typeof(Int16);
-                case "Int32":
+              
+                case "int32":
                     return typeof(Int32);
-                case "Int16":
+                case "int(11)":
+                case "int16":
                     return typeof(Int16);
                 case "float":
                 case "double":
