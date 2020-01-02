@@ -69,5 +69,10 @@ namespace SEPFramework
         {
             return new Row(this);
         }
+        public void Reset()
+        {
+            Rows.Clear();
+            Columns.Clear();
+        }
     }
 }

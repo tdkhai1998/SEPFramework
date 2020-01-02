@@ -39,13 +39,12 @@
             // 
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(25, 68);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dataGridView.Location = new System.Drawing.Point(34, 83);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(548, 267);
+            this.dataGridView.Size = new System.Drawing.Size(731, 329);
             this.dataGridView.TabIndex = 0;
-            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick_1);
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick_1);
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellDoubleClick);
             // 
             // addBtn
@@ -54,14 +53,13 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.addBtn.Location = new System.Drawing.Point(25, 413);
-            this.addBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.addBtn.Location = new System.Drawing.Point(34, 508);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(125, 34);
+            this.addBtn.Size = new System.Drawing.Size(167, 42);
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.addBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // updateBtn
             // 
@@ -69,14 +67,13 @@
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.updateBtn.Location = new System.Drawing.Point(168, 413);
-            this.updateBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.updateBtn.Location = new System.Drawing.Point(224, 508);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(112, 34);
+            this.updateBtn.Size = new System.Drawing.Size(149, 42);
             this.updateBtn.TabIndex = 2;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
-            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            this.updateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // deleteBtn
             // 
@@ -84,28 +81,29 @@
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.deleteBtn.Location = new System.Drawing.Point(300, 413);
-            this.deleteBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteBtn.Location = new System.Drawing.Point(400, 508);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(113, 34);
+            this.deleteBtn.Size = new System.Drawing.Size(150, 42);
             this.deleteBtn.TabIndex = 3;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // ReadForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 467);
+            this.ClientSize = new System.Drawing.Size(800, 575);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dataGridView);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Name = "ReadForm";
             this.Text = "ReadForm";
             this.SizeChanged += new System.EventHandler(this.ReadForm_SizeChanged);
+            this.Load += new System.EventHandler(this.ReadForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
