@@ -28,7 +28,7 @@ namespace SEPFramework
         public abstract DataTable getTable(string tableName);
         public abstract List<string> getListTableName();
 
-        public abstract List<Column> getListColByTableName(string tableName);
+        //public abstract List<Column> getListColByTableName(string tableName);
 
     }
 }
