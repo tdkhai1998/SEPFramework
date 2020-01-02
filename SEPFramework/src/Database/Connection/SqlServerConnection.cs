@@ -185,18 +185,71 @@ namespace SEPFramework
 
         public override bool CreateMembershipTable()
         {
-            throw new NotImplementedException();
+            var stm0 = "IF NOT EXISTS (select * from sysobjects where name='account' and xtype='U') CREATE TABLE  account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)";
+            var stm1 = "IF NOT EXISTS (select * from sysobjects where name='role' and xtype='U') CREATE TABLE  role ( roleid INT NOT NULL , rolename VARCHAR(255) NOT NULL)";
+            var stm2 = "IF NOT EXISTS (select * from sysobjects where name='account_role' and xtype='U') CREATE TABLE  account_role ( username VARCHAR(255) NOT NULL, roleid INT NOT NULL)";
+            List<String> stms = new List<String>();
+            stms.Add(stm0);
+            stms.Add(stm1);
+            stms.Add(stm2);
+            int check = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (connection.State.ToString() == "Open")
+                {
+                    var cmd = new SqlCommand(stms[i], connection);
+                    //check = cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() > 0)
+                        check += 1;
+                }
+            }
+            if (check < 3)
+                return false;
+            return true;
         }
 
 
         public override DataTable Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var stm = "SELECT * FROM account WHERE username = @param0 AND password = @param1";
+            DataTable tb = new DataTable();
+            var cmd = new SqlCommand(stm, connection);
+            cmd.Parameters.AddWithValue("@param0", username);
+            cmd.Parameters.AddWithValue("@param1", password);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            tb.Load(rdr);
+            rdr.Close();
+            if (tb.Rows.Count != 0)
+            {
+                var stm2 = $"SELECT rolename from role, account_role where account_role.username = '{username}' and role.roleid = account_role.roleid";
+                SqlDataAdapter rdr2 = new SqlDataAdapter(stm2, connection);
+                DataTable roleTable = new DataTable();
+                rdr2.Fill(roleTable);
+                rdr2.Dispose();
+                return roleTable;
+            }
+            return null;
         }
 
         public override bool Register(string username, string password)
         {
-            throw new NotImplementedException();
+            var stm = "INSERT INTO account VALUES (@param0,@param1)";
+            var cmd = new SqlCommand(stm, connection);
+            cmd.Parameters.AddWithValue("@param0", username);
+            cmd.Parameters.AddWithValue("@param1", password);
+
+            Console.WriteLine(cmd.CommandText);
+            try
+            {
+                int check = cmd.ExecuteNonQuery();
+                Console.WriteLine(check);
+                return check == 1;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+                return false;
+            }
         }
 
         public override bool Update(string tableName, Row row, Row newRow)

@@ -149,10 +149,12 @@ namespace SEPFramework
                 if (connection.State.ToString() == "Open")
                 {
                     var cmd = new MySqlCommand(stms[i], connection);
-                    check = cmd.ExecuteNonQuery();
+                    //check = cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() > 0)
+                        check += 1;
                 }
             }
-            if (check == 0)
+            if (check < 3)
                 return false;
             return true;
 
