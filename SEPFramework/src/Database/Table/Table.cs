@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-
 namespace SEPFramework
 {
     public class Table
@@ -17,6 +16,14 @@ namespace SEPFramework
             this.Refresh();
         }
 
+        List<IDataGridView> obsevers = new List<IDataGridView>();
+
+        public void registerObserver(IDataGridView dataGridView)
+        {
+            this.obsevers.Add(dataGridView);
+        }
+
+
         public List<Column> Columns = new List<Column>();
         public List<Row> Rows = new List<Row>();
 
@@ -27,22 +34,35 @@ namespace SEPFramework
 
         public bool Update(Row row, Row newRow)
         {
-            return UpdateAction(Name, row, newRow);
+            bool result = UpdateAction(Name, row, newRow);
+            this.Refresh();
+            return result;
         }
 
         public bool Create(Row row)
         {
-            return CreateAction(Name, row);
+            bool result = CreateAction(Name,row);
+            this.Refresh();
+            return result;
         }
 
-        public bool Refresh()//-------------------------------------------------------
+        public bool Refresh()
         {
-            return ReadAction(this);
+
+            bool result = ReadAction(this);
+            foreach(IDataGridView dataGridView in this.obsevers)
+            {
+                dataGridView.UpdateDataSource(this.dataTable);
+            }
+
+            return result;
         }
 
         public bool Delete(Row row)
         {
-            return DeleteAction(Name, row);
+            bool result = DeleteAction(Name,row);
+            this.Refresh();
+            return result;
         }
 
         public Row CreateEmptyRow()
