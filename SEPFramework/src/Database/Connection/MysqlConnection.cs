@@ -123,33 +123,25 @@ namespace SEPFramework
             DataTable tb = new DataTable();
             var cmd = new MySqlCommand(stm, connection);
             MySqlDataReader rdr = cmd.ExecuteReader();
-            //if (rdr.HasRows)
-            //{
-            //    tb.Load(rdr);
-            //}
             tb.Load(rdr);
-
             rdr.Close();
             return tb;
         }
 
         public override bool CreateMembershipTable()
         {
-            var stm0 = "CREATE TABLE IF NOT EXISTS account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)";
-            var stm1 = "CREATE TABLE IF NOT EXISTS  role ( roleid INT NOT NULL , rolename VARCHAR(255) NOT NULL)";
-            var stm2 = "CREATE TABLE IF NOT EXISTS  account_role ( username VARCHAR(255) NOT NULL, roleid INT NOT NULL)";
-            List<String> stms = new List<String>();
-            stms.Add(stm0);
-            stms.Add(stm1);
-            stms.Add(stm2);
-            Console.WriteLine(connection.State.ToString());
+            List<String> stms = new List<String>
+            {
+                "CREATE TABLE IF NOT EXISTS account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS  role ( roleid INT NOT NULL , rolename VARCHAR(255) NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS  account_role ( username VARCHAR(255) NOT NULL, roleid INT NOT NULL)"
+            };
             int check = 0;
             for (int i = 0; i < 3; i++)
             {
                 if (connection.State.ToString() == "Open")
                 {
                     var cmd = new MySqlCommand(stms[i], connection);
-                    //check = cmd.ExecuteNonQuery();
                     if (cmd.ExecuteNonQuery() > 0)
                         check += 1;
                 }
@@ -189,10 +181,6 @@ namespace SEPFramework
             var cmd = new MySqlCommand(stm, connection);
             cmd.Parameters.AddWithValue("@param0", username);
             cmd.Parameters.AddWithValue("@param1", password);
-            //if (rdr.HasRows)
-            //{
-            //    tb.Load(rdr);
-            //}
             Console.WriteLine(cmd.CommandText);
             try
             {
@@ -206,62 +194,5 @@ namespace SEPFramework
                 return false;
             }
         }
-
-
-        //private Type getType(string typeString)
-        //{
-
-        //    switch (typeString.ToLower())
-        //    {
-        //        case "nvarchar":
-        //        case "nchar":
-        //        case "ntext":
-        //        case "text":
-        //        case "varchar":
-        //            return typeof(String);
-        //        case "int(11)":
-        //            return typeof(Int16);
-        //        case "int32":
-        //            return typeof(Int32);
-        //        case "int16":
-        //            return typeof(Int16);
-        //        case "float":
-        //        case "double":
-        //            return typeof(Double);
-        //        case "datetime":
-        //            return typeof(DateTime);
-        //        case "image":
-        //            return typeof(Byte[]);
-        //        case "real":
-        //            return typeof(Single);
-        //        case "tinyint":
-        //        case "binary":
-        //            return typeof(Byte);
-        //        case "money":
-        //            return typeof(Decimal);
-        //        default:
-        //            return typeof(Nullable);
-        //    }
-        //}
-
-        //public override List<Column> getListColByTableName(string tableName)
-        //{
-        //    List<Column> colList = new List<Column>();
-        //    var stm = "show columns from " + tableName;
-        //    var cmd = new MySqlCommand(stm, connection);
-        //    MySqlDataReader rdr = cmd.ExecuteReader();
-        //    while (rdr.Read())
-        //    {
-        //        Console.WriteLine(rdr[0]);
-        //        //type
-        //        Console.WriteLine(rdr[1]);
-
-        //        Column col = new Column(rdr[0].ToString(), getType(rdr[1].ToString()),false);
-        //        colList.Add(col);
-        //    }
-        //    Console.WriteLine(colList.Count);
-        //    rdr.Close();
-        //    return colList;
-        //}
     }
 }

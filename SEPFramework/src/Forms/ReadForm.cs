@@ -14,7 +14,7 @@ namespace SEPFramework
             role = MyContainer.Create<Role>();
             this.dataGridView.DataSource = table.dataTable;
             this.table.registerObserver(this.dataGridView);
-            addBtn.Enabled = role.isAllowAdd;
+            addBtn.Enabled = role.isAllowedAdd;
             dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
@@ -93,8 +93,8 @@ namespace SEPFramework
             if (e.RowIndex < table.Rows.Count)
             {
               
-                    updateBtn.Enabled = role.isAllowDelete;
-                    deleteBtn.Enabled = role.isAllowUdate;
+                    updateBtn.Enabled = role.isAllowedDelete;
+                    deleteBtn.Enabled = role.isAllowedUpdate;
                 currentRow = e.RowIndex;
             }
             else

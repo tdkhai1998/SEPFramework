@@ -66,7 +66,7 @@
             this.loginBtn.TabStop = false;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            this.loginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // Title
             // 
@@ -97,7 +97,7 @@
             this.register.Size = new System.Drawing.Size(137, 20);
             this.register.TabIndex = 6;
             this.register.Text = "create an account";
-            this.register.Click += new System.EventHandler(this.register_Click);
+            this.register.Click += new System.EventHandler(this.Register_Click);
             // 
             // label3
             // 

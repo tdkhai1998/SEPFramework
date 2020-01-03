@@ -15,6 +15,8 @@ namespace SEPFramework.Membership
 
         private List<string> roles = new List<string>();
 
+        public Action<List<string>> SuccessAction;
+
         public List<string> getRoles()
         {
             return roles;
@@ -23,30 +25,30 @@ namespace SEPFramework.Membership
         {
             InitializeComponent();
             this.database.Connection.Connect();
-            database.Connection.CreateMembershipTable();
+            this.database.Connection.CreateMembershipTable();
         }
 
-        private void register_Click(object sender, EventArgs e)
+        private void Register_Click(object sender, EventArgs e)
         {
-
             MembershipBaseForm r = (MembershipBaseForm)MyContainer.Create<Register>();
             this.Hide();
             r.FormClosed += (s, args) => this.Show();
             r.Show();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-             roles = database.Login(user.Text, pass.Text);
+            roles = database.Login(user.Text, pass.Text);
             if (roles != null)
             {
                 MessageBox.Show("Login thành công");
+                this.SuccessAction(roles);
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Login thất bại");
             }
-       
         }
     }
 }

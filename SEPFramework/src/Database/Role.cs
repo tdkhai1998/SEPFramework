@@ -2,9 +2,9 @@
 {
     public class Role
     {
-        public bool isAllowread = true;
-        public bool isAllowDelete = true;
-        public bool isAllowAdd = true;
-        public bool isAllowUdate = true;
+        public bool isAllowedRead = true;
+        public bool isAllowedDelete = true;
+        public bool isAllowedAdd = true;
+        public bool isAllowedUpdate = true;
     }
 }
