@@ -66,7 +66,7 @@
             this.login.Size = new System.Drawing.Size(42, 20);
             this.login.TabIndex = 14;
             this.login.Text = "login";
-            this.login.Click += new System.EventHandler(this.login_Click);
+            this.login.Click += new System.EventHandler(this.Login_Click);
             // 
             // label1
             // 
@@ -100,7 +100,7 @@
             this.loginBtn.TabStop = false;
             this.loginBtn.Text = "Register";
             this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.registerBtn_Click);
+            this.loginBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
             // pass
             // 

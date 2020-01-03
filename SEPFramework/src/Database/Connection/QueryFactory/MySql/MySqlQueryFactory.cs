@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace SEPFramework
 {
-
-
     class MySqlQueryFactory
     {
-        public static MySqlCommonQuery createQuery(string type, String tableName, Row row, Row newRow)
+        public static IMySqlCommonQuery CreateQuery(string type, String tableName, Row row, Row newRow)
         {
             switch (type)
             {

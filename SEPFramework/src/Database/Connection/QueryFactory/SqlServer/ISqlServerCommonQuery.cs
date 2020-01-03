@@ -7,8 +7,8 @@ using System.Data.SqlClient;
 
 namespace SEPFramework
 {
-    interface  SqlServerCommonQuery
+    interface  ISqlServerCommonQuery
     {
-        SqlCommand getQuery();
+        SqlCommand GetQuery();
     }
 }

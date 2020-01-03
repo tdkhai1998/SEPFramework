@@ -4,23 +4,23 @@ using System.Windows.Forms;
 
 namespace SEPFramework
 {
-    public partial class ReadForm : SEPFramework.BaseForm, IReadForm
+    public partial class ReadForm : BaseForm, IReadForm
     {
         int currentRow = -1;
-        Role role;
+        readonly Role role;
         public ReadForm(Table table) : base(table)
         {
             InitializeComponent();
             role = MyContainer.Create<Role>();
-            this.dataGridView.DataSource = table.dataTable;
-            this.table.registerObserver(this.dataGridView);
+            dataGridView.DataSource = table.dataTable;
+            this.table.RegisterObserver(this.dataGridView);
             addBtn.Enabled = role.isAllowedAdd;
             dataGridView.Size = new Size(this.Width - 70, this.Height - 200);
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             deleteBtn.Location = new Point(updateBtn.Location.X + updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             if (table.Rows.Count > 0)
-                this.SetFocusRow(0);
+                SetFocusRow(0);
         }
         public ReadForm()
         {
@@ -28,7 +28,7 @@ namespace SEPFramework
             if (table != null)
             {
                 this.dataGridView.DataSource = table.dataTable;
-                this.table.registerObserver(this.dataGridView);
+                this.table.RegisterObserver(this.dataGridView);
 
             }
         }
@@ -92,10 +92,9 @@ namespace SEPFramework
         {
             if (e.RowIndex < table.Rows.Count)
             {
-              
-                    updateBtn.Enabled = role.isAllowedDelete;
-                    deleteBtn.Enabled = role.isAllowedUpdate;
-                currentRow = e.RowIndex;
+               updateBtn.Enabled = role.isAllowedDelete;
+               deleteBtn.Enabled = role.isAllowedUpdate;
+               currentRow = e.RowIndex;
             }
             else
             {

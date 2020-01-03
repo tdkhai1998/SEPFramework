@@ -14,25 +14,16 @@ namespace SEPFramework
         }
         public BaseForm()
         {
-
             InitializeComponent();
             SetUpUi();
             try
             {
                 this.table = MyContainer.Create<Table>();
             }
-            catch (Exception)
-            {
-
-            }
-
-
+            catch (Exception) { }
         }
         protected virtual void SetUpUi() {  }
 
-        private void BaseForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void BaseForm_Load(object sender, EventArgs e){  }
     }
 }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace SEPFramework
 {
-    interface  MySqlCommonQuery
+    interface  IMySqlCommonQuery
     {
-        MySqlCommand getQuery();
+        MySqlCommand GetQuery();
     }
 }
+

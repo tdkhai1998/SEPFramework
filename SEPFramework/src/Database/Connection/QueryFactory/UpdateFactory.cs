@@ -8,12 +8,12 @@ namespace SEPFramework
 {
     class UpdateFactory : QueryAbstractFactory
     {
-        public override MySqlCommonQuery createMySql(string tableName, Row row, Row newRow)
+        public override IMySqlCommonQuery CreateMySql(string tableName, Row row, Row newRow)
         {
             return new UpdateQuery(tableName, row, newRow);
         }
 
-        public override SqlServerCommonQuery createSqlServer(string tableName, Row row, Row newRow)
+        public override ISqlServerCommonQuery CreateSqlServer(string tableName, Row row, Row newRow)
         {
             return new SqlServerUpdateQuery(tableName, row, newRow);
         }

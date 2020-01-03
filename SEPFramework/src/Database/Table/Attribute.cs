@@ -4,7 +4,7 @@ namespace SEPFramework
 {
     public  class Attribute:Column
     {
-        public Object Value = null;
+        public object Value = null;
         public Attribute(Type type, string name, bool isReadOnly, object value = null):base(name,type,isReadOnly)
         {
             Value = value;

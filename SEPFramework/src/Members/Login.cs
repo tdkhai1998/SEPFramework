@@ -17,10 +17,6 @@ namespace SEPFramework.Membership
 
         public Action<List<string>> SuccessAction;
 
-        public List<string> getRoles()
-        {
-            return roles;
-        }
         public Login()
         {
             InitializeComponent();

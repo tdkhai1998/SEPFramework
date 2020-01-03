@@ -17,11 +17,7 @@ namespace SEPFramework.Membership
             InitializeComponent();
         }
 
-
-
-
-
-        private void registerBtn_Click(object sender, EventArgs e)
+        private void RegisterBtn_Click(object sender, EventArgs e)
         {
            bool success = database.Register(user.Text, pass.Text);
             if (success)
@@ -35,11 +31,9 @@ namespace SEPFramework.Membership
             }
         }
 
-        private void login_Click(object sender, EventArgs e)
+        private void Login_Click(object sender, EventArgs e)
         {
-      
             this.Close();
-       
         }
     }
 }

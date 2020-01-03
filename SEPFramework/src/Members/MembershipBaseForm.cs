@@ -20,10 +20,7 @@ namespace SEPFramework.Membership
             {
                 this.database = MyContainer.Create<Database>();
             }
-            catch
-            {
-
-            }
+            catch { }
         }
     }
 }

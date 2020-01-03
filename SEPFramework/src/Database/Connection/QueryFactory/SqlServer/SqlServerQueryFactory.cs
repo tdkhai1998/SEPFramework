@@ -10,7 +10,7 @@ namespace SEPFramework
 
     class SqlServerQueryFactory
     {
-        public static SqlServerCommonQuery createQuery(string type, String tableName, Row row, Row newRow)
+        public static ISqlServerCommonQuery createQuery(string type, String tableName, Row row, Row newRow)
         {
             switch (type)
             {

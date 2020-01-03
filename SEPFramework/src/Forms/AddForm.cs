@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace SEPFramework
 {
 
-    public partial class AddForm : SEPFramework.BaseForm, IAddForm
+    public partial class AddForm : BaseForm, IAddForm
     {
         readonly List<Control> LabelList = new List<Control>();
         readonly List<Control> TextBoxList = new List<Control>();
@@ -44,7 +44,6 @@ namespace SEPFramework
                 int i = 0;
                 foreach (Column col in table.Columns)
                 {
-                    // {
                     if (col.ReadOnly)
                         continue;
                     Label label = new Label();
@@ -95,7 +94,6 @@ namespace SEPFramework
             {
                 newRow[TextBoxList[i].Name] = TextBoxList[i].Text;
             }
-
             table.Create(newRow);
             table.Refresh();
             done(table.Rows.Count-1);

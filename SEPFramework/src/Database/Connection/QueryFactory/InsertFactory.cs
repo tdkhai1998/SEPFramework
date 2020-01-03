@@ -8,18 +8,13 @@ namespace SEPFramework
 {
     class InsertFactory : QueryAbstractFactory
     {
-    
-
-
-        public override MySqlCommonQuery createMySql(string tableName, Row row, Row newRow)
+  
+        public override IMySqlCommonQuery CreateMySql(string tableName, Row row, Row newRow)
         {
             return new InsertQuery(tableName, row);
         }
 
- 
-
-
-        public override SqlServerCommonQuery createSqlServer(string tableName, Row row, Row newRow)
+        public override ISqlServerCommonQuery CreateSqlServer(string tableName, Row row, Row newRow)
         {
             return new SqlServerInsertQuery(tableName, row);
         }

@@ -8,7 +8,7 @@ namespace SEPFramework
 {
     abstract class QueryAbstractFactory
     {
-        public abstract MySqlCommonQuery createMySql(String tableName, Row row, Row newRow);
-        public abstract SqlServerCommonQuery createSqlServer( String tableName, Row row, Row newRow);
+        public abstract IMySqlCommonQuery CreateMySql(String tableName, Row row, Row newRow);
+        public abstract ISqlServerCommonQuery CreateSqlServer( String tableName, Row row, Row newRow);
      }
 }

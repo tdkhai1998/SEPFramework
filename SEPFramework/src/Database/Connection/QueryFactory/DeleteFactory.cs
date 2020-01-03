@@ -8,14 +8,12 @@ namespace SEPFramework
 {
     class DeleteFactory : QueryAbstractFactory
     {
-
-        public override MySqlCommonQuery createMySql(string tableName, Row row, Row newRow)
+        public override IMySqlCommonQuery CreateMySql(string tableName, Row row, Row newRow)
         {
             return new DeleteQuery(tableName, row);
         }
 
-   
-        public override SqlServerCommonQuery createSqlServer(string tableName, Row row, Row newRow)
+        public override ISqlServerCommonQuery CreateSqlServer(string tableName, Row row, Row newRow)
         {
             return new SqlServerDeleteQuery(tableName, row);
         }

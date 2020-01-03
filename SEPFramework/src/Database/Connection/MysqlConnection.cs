@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SEPFramework
@@ -19,7 +17,7 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).createMySql(tableName, row, null).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).CreateMySql(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -36,7 +34,7 @@ namespace SEPFramework
         }
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.update).createMySql(tableName, row, newRow).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.update).CreateMySql(tableName, row, newRow).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -55,7 +53,7 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
-            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).createMySql(tableName, row, null).getQuery();
+            MySqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).CreateMySql(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
@@ -92,7 +90,7 @@ namespace SEPFramework
 
 
 
-        public override List<string> getListTableName()
+        public override List<string> GetListTableName()
         {
             List<string> tableList = new List<string>();
             var stm = "show tables";
@@ -117,7 +115,7 @@ namespace SEPFramework
             return tableList;
         }
 
-        public override DataTable getTable(string tableName)
+        public override DataTable GetTable(string tableName)
         {
             var stm = "SELECT * FROM " + tableName;
             DataTable tb = new DataTable();
@@ -146,10 +144,7 @@ namespace SEPFramework
                         check += 1;
                 }
             }
-            if (check < 3)
-                return false;
-            return true;
-
+            return check >= 3;
         }
 
         public override DataTable Login(string username, string password)
@@ -185,7 +180,6 @@ namespace SEPFramework
             try
             {
                 int check = cmd.ExecuteNonQuery();
-                Console.WriteLine(check);
                 return check == 1;
             }
             catch

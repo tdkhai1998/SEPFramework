@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace SEPFramework
 {
-    class SqlServerUpdateQuery : SqlServerCommonQuery
+    class SqlServerUpdateQuery : ISqlServerCommonQuery
     {
         private string tableName;
         private Row row;
@@ -20,18 +20,13 @@ namespace SEPFramework
             this.newRow = newRow;
         }
 
-        public SqlCommand getQuery()
+        public SqlCommand GetQuery()
         {
-
             SqlCommand command = new SqlCommand();
-
-            List<String> fields = row.Attributes.Keys.ToList();
+            List<string> fields = row.Attributes.Keys.ToList();
             List<Attribute> newValues = newRow.Attributes.Values.ToList();
             List<Attribute> oldValues = row.Attributes.Values.ToList();
-
-            String paramsString = this.createParamsSetUpdateString(fields, oldValues);
-
-
+            string paramsString = this.createParamsSetUpdateString(fields, oldValues);
 
             command.CommandText = "update " + tableName + " set " + paramsString;
 

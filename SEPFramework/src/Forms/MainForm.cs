@@ -6,7 +6,7 @@ namespace SEPFramework
 {
     public partial class MainForm : Form
     {
-        private Database database;
+        private readonly Database database;
         public MainForm()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace SEPFramework
             button2.Enabled = role.isAllowedRead;
         }
 
-        private void readBtn_Click(object sender, EventArgs e)
+        private void ReadBtn_Click(object sender, EventArgs e)
         {
             Table t = this.database.GetTableByName(this.tableList.SelectedItem.ToString());
             MyContainer.RegisterInstance<Table>(t);

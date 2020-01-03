@@ -7,11 +7,11 @@ using MySql.Data.MySqlClient;
 
 namespace SEPFramework
 {
-    class UpdateQuery : MySqlCommonQuery
+    class UpdateQuery : IMySqlCommonQuery
     {
-        private string tableName;
-        private Row row;
-        private Row newRow;
+        private readonly string tableName;
+        private readonly Row row;
+        private readonly Row newRow;
 
         public UpdateQuery(string tableName, Row row, Row newRow)
         {
@@ -20,18 +20,13 @@ namespace SEPFramework
             this.newRow = newRow;
         }
 
-        public MySqlCommand getQuery()
+        public MySqlCommand GetQuery()
         {
-
             MySqlCommand command = new MySqlCommand();
-
-            List<String> fields = row.Attributes.Keys.ToList();
+            List<string> fields = row.Attributes.Keys.ToList();
             List<Attribute> newValues = newRow.Attributes.Values.ToList();
             List<Attribute> oldValues = row.Attributes.Values.ToList();
-
-            String paramsString = this.createParamsSetUpdateString(fields);
-
-
+            string paramsString = this.CreateParamsSetUpdateString(fields);
 
             command.CommandText = "update " + tableName + " set " + paramsString;
 
@@ -48,7 +43,7 @@ namespace SEPFramework
             return command;
         }
 
-        private String createParamsSetUpdateString(List<String> fields)
+        private string CreateParamsSetUpdateString(List<String> fields)
         {
             StringBuilder paramsString = new StringBuilder();
             if (fields.Count < 1)

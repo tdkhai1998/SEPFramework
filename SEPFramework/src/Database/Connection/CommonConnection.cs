@@ -23,13 +23,9 @@ namespace SEPFramework
         public abstract bool Add(string tableName, Row row);
         public abstract bool Update(string tableName, Row row, Row newRow);
         public abstract bool Delete(string tableName, Row row);
-
         public abstract bool Connect();
-        public abstract DataTable getTable(string tableName);
-        public abstract List<string> getListTableName();
-
-        //public abstract List<Column> getListColByTableName(string tableName);
-
+        public abstract DataTable GetTable(string tableName);
+        public abstract List<string> GetListTableName();
 
         // create 'account' table + 'account_role' table + 'role' table 
         // default 'account' table fields: username, password 
@@ -37,7 +33,6 @@ namespace SEPFramework
         // default 'role' table fields: roleid, rolename
 
         public abstract bool CreateMembershipTable();
-
 
         // select from account table / trả về role
         public abstract DataTable Login(string username, string password);

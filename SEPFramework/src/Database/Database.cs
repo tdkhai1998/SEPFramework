@@ -10,7 +10,6 @@ namespace SEPFramework
         public readonly CommonConnection Connection;
         private readonly Dictionary<string, Table> tables = new Dictionary<string, Table>();
 
-
         public Database(CommonConnection connection)
         {
             this.Connection = connection;
@@ -25,7 +24,7 @@ namespace SEPFramework
         {
             if (tables.ContainsKey(table.Name))
             {
-                DataTableToTable(Connection.getTable(table.Name), table);
+                DataTableToTable(Connection.GetTable(table.Name), table);
                 return true;
             }
             return false;
@@ -59,12 +58,10 @@ namespace SEPFramework
 
         public void LoadData()
         {
-
-            List<string> tableNames = Connection.getListTableName();
+            List<string> tableNames = Connection.GetListTableName();
             foreach (string tableName in tableNames)
             {
-
-                DataTable data = Connection.getTable(tableName);
+                DataTable data = Connection.GetTable(tableName);
                 Table table = new Table(Create, Read, Update, Delete, tableName);
                 DataTableToTable(data, table);
                 table.dataTable = data;
@@ -81,22 +78,12 @@ namespace SEPFramework
         {
             table.Reset();
             table.dataTable = data;
-            //if (data.Columns.Count == 0)
-            //{
-            //    List<Column> cols = Connection.getListColByTableName(table.Name);
-            //    foreach (Column col in cols)
-            //    {
-            //        table.Columns.Add(col);
-            //        data.Columns.Add(col.Name, col.Type);
-            //    }
-            //}
-            //else
-            //{
-                foreach (DataColumn col in data.Columns)
-                {
-                    table.Columns.Add(new Column(col.ColumnName, col.DataType, IsColumnReadOnly(col)));
-                }
-            //}
+
+            foreach (DataColumn col in data.Columns)
+            {
+                table.Columns.Add(new Column(col.ColumnName, col.DataType, IsColumnReadOnly(col)));
+            }
+
             foreach (DataRow row in data.Rows)
             {
                 Row r = table.CreateEmptyRow();
@@ -125,7 +112,6 @@ namespace SEPFramework
         }
         public bool Register(string username, string password)
         {
-
             return Connection.Register(username, password); 
         }
     }

@@ -7,11 +7,8 @@ namespace SEPFramework
         public Row(Table table)
         {
             AddProtoType(table.Columns);
-
         }
         private Row() { }
-
-      
 
         private Dictionary<string, Attribute> attributes = new Dictionary<string, Attribute>();
 

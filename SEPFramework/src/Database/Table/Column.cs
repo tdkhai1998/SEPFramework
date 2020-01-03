@@ -6,9 +6,9 @@ namespace SEPFramework
     {
         public Column(string name, Type type, bool readOnly)
         {
-            this.Name = name;
-            this.Type = type;
-            this.ReadOnly = readOnly;
+            Name = name;
+            Type = type;
+            ReadOnly = readOnly;
         }
         public readonly string Name;
         public readonly Type Type;
