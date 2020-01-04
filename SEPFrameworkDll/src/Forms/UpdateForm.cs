@@ -12,80 +12,92 @@ namespace SEPFramework
     {
         readonly List<Control> LabelList = new List<Control>();
         readonly List<Control> TextBoxList = new List<Control>();
-        readonly int CurrentRow;
+        readonly int CurrentRow = 0;
         public UpdateForm(Table table, int CurrentRow) : base(table)
         {
             InitializeComponent();
             this.CurrentRow = CurrentRow;
-            SetUpUi();
+
+        }
+        public UpdateForm() : base()
+        {
+            InitializeComponent();
+            try { this.CurrentRow = MyContainer.Create<int>(); } catch { }
+
         }
         protected override void SetUpUi()
         {
-            base.SetUpUi();
-            foreach (Control control in LabelList)
+            try
             {
-                this.Controls.Remove(control);
-            }
-            foreach (Control control in TextBoxList)
-            {
-                this.Controls.Remove(control);
-            }
-
-            TextBoxList.Clear();
-            LabelList.Clear();
-            int i = 0;
-            Size textBoxSize = new Size(this.Width - 320, 20);
-            foreach (Column col in table.Columns)
-            {
-                Label label = new Label
+                foreach (Control control in LabelList)
                 {
-                    Text = col.Name,
-                    Size = new Size(100, 20),
-                    Location = new Point(20, 20 + i * 40),
-                    Parent = this
-                };
-                this.Controls.Add(label);
-
-                TextBox textBox = new TextBox
-                {
-                    Size = textBoxSize,
-                    Location = new Point(230, 20 + i * 40),
-                    Parent = this,
-                    Text = table.Rows[CurrentRow][col.Name].ToString(),
-                    Name = col.Name
-                };
-
-                if (col.ReadOnly)
-                {
-                    textBox.ReadOnly = true;
+                    this.Controls.Remove(control);
                 }
-                if (SEPFramework.Validate.IsNumericType(col.Type.Name))
+                foreach (Control control in TextBoxList)
                 {
-                    textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
+                    this.Controls.Remove(control);
+                }
+                TextBoxList.Clear();
+                LabelList.Clear();
+                int i = 0;
+                Size textBoxSize = new Size(this.Width - 320, 20);
+                foreach (Column col in table.Columns)
+                {
+                    // if (col.ReadOnly) continue;
+                    Label label = new Label
                     {
-                        // Verify that the pressed key isn't CTRL or any non-numeric digit
-                        if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-                        {
-                            e.Handled = true;
-                        }
-                        // If you want, you can allow decimal (float) numbers
-                        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                        {
-                            e.Handled = true;
-                        }
+                        Text = col.Name,
+                        Size = new Size(100, 20),
+                        Location = new Point(20, 20 + i * 40),
+                        Parent = this
                     };
-                }
+                    this.Controls.Add(label);
 
-                this.Controls.Add(textBox);
-                this.updateBtn.Location = new Point(20, 80 + i * 40);
-                this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
-                this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
-                this.Size = new Size(this.Size.Width, 200 + i * 40);
-                this.LabelList.Add(label);
-                this.TextBoxList.Add(textBox);
-                i++;
+                    TextBox textBox = new TextBox
+                    {
+                        Size = textBoxSize,
+                        Location = new Point(230, 20 + i * 40),
+                        Parent = this,
+                        Text = table.Rows[CurrentRow][col.Name].ToString(),
+                        Name = col.Name,
+                        ReadOnly = col.ReadOnly
+                    };
+                    if (SEPFramework.Validate.IsNumericType(col.Type.Name))
+                    {
+                        textBox.KeyPress += delegate (object sender, KeyPressEventArgs e)
+                        {
+                            // Verify that the pressed key isn't CTRL or any non-numeric digit
+                            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                            {
+                                e.Handled = true;
+                            }
+                            // If you want, you can allow decimal (float) numbers
+                            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                            {
+                                e.Handled = true;
+                            }
+                        };
+                    }
+
+                    this.Controls.Add(textBox);
+
+                    this.updateBtn.Location = new Point(20, 80 + i * 40);
+                    this.MaximumSize = new Size(int.MaxValue, 220 + i * 40);
+                    this.MinimumSize = new Size(this.Size.Width, 220 + i * 40);
+                    this.Size = new Size(this.Size.Width, 200 + i * 40);
+
+                    this.LabelList.Add(label);
+                    this.TextBoxList.Add(textBox);
+                    i++;
+
+                }
+            }
+            catch
+            {
+
             }
         }
+
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
@@ -108,5 +120,13 @@ namespace SEPFramework
             }
         }
 
+        private void UpdateForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                SetUpUi();
+            }
+            catch { }
+        }
     }
 }
