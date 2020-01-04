@@ -17,11 +17,6 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             MySqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).CreateMySql(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
@@ -39,11 +34,6 @@ namespace SEPFramework
         }
         public override bool Update(string tableName, Row row, Row newRow)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             MySqlCommand cmd = QueryFactory.GetFactory(QueryType.update).CreateMySql(tableName, row, newRow).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
@@ -63,11 +53,6 @@ namespace SEPFramework
 
         public override bool Delete(string tableName, Row row)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             MySqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).CreateMySql(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
@@ -107,27 +92,23 @@ namespace SEPFramework
 
         public override List<string> GetListTableName()
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             List<string> tableList = new List<string>();
             var stm = "show tables";
-            //if (connection.State.ToString() == "Open")
-            //{
-            var cmd = new MySqlCommand(stm, connection);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            Console.WriteLine(connection.State);
+            if (connection.State.ToString() == "Open")
             {
-                tableList.Add(rdr[0].ToString());
+                var cmd = new MySqlCommand(stm, connection);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    tableList.Add(rdr[0].ToString());
+                }
+                rdr.Close();
             }
-            rdr.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Connection has been closed !");
-            //}
+            else
+            {
+                MessageBox.Show("Connection has been closed !");
+            }
 
 
 
@@ -136,11 +117,6 @@ namespace SEPFramework
 
         public override DataTable GetTable(string tableName)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             var stm = "SELECT * FROM " + tableName;
             DataTable tb = new DataTable();
             var cmd = new MySqlCommand(stm, connection);
@@ -152,11 +128,6 @@ namespace SEPFramework
 
         public override bool CreateMembershipTable()
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             List<String> stms = new List<String>
             {
                 "CREATE TABLE IF NOT EXISTS account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)",
@@ -178,11 +149,6 @@ namespace SEPFramework
 
         public override DataTable Login(string username, string password)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             var stm = "SELECT * FROM account WHERE username = @param0 AND password = @param1";
             DataTable tb = new DataTable();
             var cmd = new MySqlCommand(stm, connection);
@@ -206,11 +172,6 @@ namespace SEPFramework
 
         public override bool Register(string username, string password)
         {
-            if (connection.State.ToString() != "Open")
-            {
-                MessageBox.Show("Không thể kết nối đến database!");
-                Environment.Exit(0);
-            }
             var stm = "INSERT INTO account VALUES (@param0,@param1)";
             var cmd = new MySqlCommand(stm, connection);
             cmd.Parameters.AddWithValue("@param0", username);

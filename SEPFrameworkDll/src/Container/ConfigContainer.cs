@@ -16,9 +16,10 @@ namespace SEPFramework
         {
             MyContainer.RegisterInstance<CommonConnection>(conn);
         }
-        public static void RegisterRole(Role role)
+
+        public static void RegisterMembership(CommonConnection conn)
         {
-            MyContainer.RegisterInstance<Role>(role);
+            MyContainer.RegisterInstance<CommonConnection>(conn);
         }
     }
 }

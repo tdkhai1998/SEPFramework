@@ -15,8 +15,7 @@ namespace SEPFramework
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //CommonConnection connection = ConnectionFactory.createConnection("mysql", "remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
-            CommonConnection connection = ConnectionFactory.createConnection("sqlserver", "DESKTOP-FRPO8I4\\SQLEXPRESS", "testDB", "", "CqlKK8zDL3", 3306);
+            CommonConnection connection = ConnectionFactory.createConnection("mysql", "remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
             MyContainer.RegisterInstance<CommonConnection>(connection);
             Login login = new Login
             {
@@ -29,11 +28,11 @@ namespace SEPFramework
                         isAllowedUpdate = roles.Contains("U"),
                         isAllowedDelete = roles.Contains("D")
                     };
-                    SEPContainer.RegisterRole(role);
+                    MyContainer.RegisterInstance<Role>(role);
                     new MainForm().Show();
                 }
             };
-            Application.Run(new MainForm());
+            Application.Run(login);
         }
     }
 }

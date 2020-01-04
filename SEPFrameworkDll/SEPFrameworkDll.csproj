@@ -52,8 +52,8 @@
     <Compile Include="src\Database\Connection\QueryFactory\DeleteFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\InsertFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\DeleteQuery.cs" />
-    <Compile Include="src\Database\Connection\QueryFactory\MySql\IMySqlCommonQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\InsertQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\IMySqlCommonQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlQueryFactory.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\MySql\UpdateQuery.cs" />
     <Compile Include="src\Database\Connection\QueryFactory\QueryAbstractFactory.cs" />
