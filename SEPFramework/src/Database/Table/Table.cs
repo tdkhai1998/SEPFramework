@@ -74,5 +74,13 @@ namespace SEPFramework
             Rows.Clear();
             Columns.Clear();
         }
+
+        public Database Database
+        {
+            get => default(Database);
+            set
+            {
+            }
+        }
     }
 }

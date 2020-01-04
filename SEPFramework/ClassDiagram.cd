@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SEPFramework.Database">
+    <Position X="6.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAIAAAAAQAAFAAAAAAAAgAAEBAEAAAAAQAgAAABA=</HashCode>
+      <FileName>src\Database\Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.CommonConnection">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAABABAAAAAAEAAAAIIEAAAEBAAgAAAgQACABAAA=</HashCode>
+      <FileName>src\Database\Connection\CommonConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Mysql">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAYAAABAAAAAAAAAAAABIIAAAAEBAAAAAAAQAAABAAA=</HashCode>
+      <FileName>src\Database\Connection\MysqlConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Table">
+    <Position X="9.75" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQCBAAADABABEAEAAAAAIQAAAEAAEAAAAAAAJgAAAA=</HashCode>
+      <FileName>src\Database\Table\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Column">
+    <Position X="11.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAIAAAACAA=</HashCode>
+      <FileName>src\Database\Table\Column.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Row">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAQAAAAGAAAAAAAAAAAABA=</HashCode>
+      <FileName>src\Database\Table\Row.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.SqlServer">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAABAAAAAAAAAAAABIIAAAAEBAAAAAAAQAAABAAA=</HashCode>
+      <FileName>src\Database\Connection\SqlServerConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.MainForm">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAAAAACAAABBAAACAAAACAAAQAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.BaseForm">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAQCAAAABAAACAAAACAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.AddForm">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAAAAAAACAAAACEAQAAAEAgIAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\AddForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.MyContainer" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAgAAAABAAAgAAABAAEAAQIEAAAIAAAA=</HashCode>
+      <FileName>src\Container\Container.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.SEPContainer" Collapsed="true">
+    <Position X="14.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAIAACAA=</HashCode>
+      <FileName>src\Container\SEPContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.DeleteFactory" Collapsed="true">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\DeleteFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.InsertFactory" Collapsed="true">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\InsertFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.QueryAbstractFactory" Collapsed="true">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\QueryAbstractFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.QueryFactory" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\QueryFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.UpdateFactory" Collapsed="true">
+    <Position X="16.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\UpdateFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.DeleteQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACAAAAAAABAgAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\MySql\DeleteQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SEPFramework.InsertQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACCCAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\MySql\InsertQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.UpdateQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAgAAAAAAAEAACAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\MySql\UpdateQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.169" />
+  </Class>
+  <Class Name="SEPFramework.SqlServerDeleteQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACAAAAAAABAgAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\SqlServer\DeleteQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SEPFramework.SqlServerInsertQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACCCAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\SqlServer\InsertQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.SqlServerUpdateQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAgAAAAAAAEAACAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\SqlServer\UpdateQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.ConnectionFactory" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\ConnectionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.ReadForm" Collapsed="true">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAASQAAEAAAACABDACAAACAAAIgIAEABAAQAA=</HashCode>
+      <FileName>src\Forms\ReadForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.UpdateForm" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAACAAABCEAQAAAEAAAAEABAAAAA=</HashCode>
+      <FileName>src\Forms\UpdateForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEPFramework.Role" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAEAgEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Validate" Collapsed="true">
+    <Position X="12.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>src\Validate\Validate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Membership.Login" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAACAAAFCEACCCAAACAAQAAAAAAQAAAAAAIQA=</HashCode>
+      <FileName>src\Members\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Membership.MembershipBaseForm" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAABAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Members\MembershipBaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.Membership.Register" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAFAEAACAAAACAAQAAIAAAAAAAAAAEQA=</HashCode>
+      <FileName>src\Members\Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEPFramework.CustomDataGridView" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Observer\CustomDataGridView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="SEPFramework.MySqlCommonQuery" Collapsed="true">
+    <Position X="13.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\MySql\MySqlCommonQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.SqlServerCommonQuery" Collapsed="true">
+    <Position X="15.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\SqlServer\SqlServerCommonQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.IAddForm" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\FormInterface\IAddForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.IReadForm" Collapsed="true">
+    <Position X="6.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\FormInterface\IReadForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.IUpdateForm" Collapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Forms\FormInterface\IUpdateForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.IUserTable" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Container\IUserTable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SEPFramework.IDataGridView" Collapsed="true">
+    <Position X="9.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Observer\IDataGridView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SEPFramework.QueryType" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>src\Database\Connection\QueryFactory\QueryType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
