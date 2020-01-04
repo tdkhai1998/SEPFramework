@@ -38,9 +38,10 @@
             // 
             this.tableList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableList.FormattingEnabled = true;
-            this.tableList.Location = new System.Drawing.Point(53, 75);
+            this.tableList.Location = new System.Drawing.Point(80, 117);
+            this.tableList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableList.Name = "tableList";
-            this.tableList.Size = new System.Drawing.Size(310, 33);
+            this.tableList.Size = new System.Drawing.Size(463, 45);
             this.tableList.TabIndex = 0;
             // 
             // button2
@@ -49,9 +50,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button2.Location = new System.Drawing.Point(129, 153);
+            this.button2.Location = new System.Drawing.Point(194, 239);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 51);
+            this.button2.Size = new System.Drawing.Size(244, 80);
             this.button2.TabIndex = 2;
             this.button2.Text = "Read";
             this.button2.UseVisualStyleBackColor = false;
@@ -60,24 +62,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 56);
+            this.label1.Location = new System.Drawing.Point(75, 88);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 17);
+            this.label1.Size = new System.Drawing.Size(77, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tables";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(417, 253);
+            this.ClientSize = new System.Drawing.Size(626, 395);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tableList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "ListTable";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,6 +15,11 @@ namespace SEPFramework
 
         public override bool Add(string tableName, Row row)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             SqlCommand cmd = QueryFactory.GetFactory(QueryType.insert).CreateSqlServer(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
@@ -38,7 +43,7 @@ namespace SEPFramework
             {
                 connBuilder["integrated Security"] = false;
                 connBuilder["Password"] = pass;
-                connBuilder["UserID"] = username;
+                connBuilder["User ID"] = username;
             }
             else
             {
@@ -61,6 +66,11 @@ namespace SEPFramework
  
         public override bool Delete(string tableName, Row row)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             SqlCommand cmd = QueryFactory.GetFactory(QueryType.delete).CreateSqlServer(tableName, row, null).GetQuery();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
@@ -79,6 +89,11 @@ namespace SEPFramework
 
         public override List<string> GetListTableName()
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             DataTable schema = connection.GetSchema("Tables");
             List<string> TableNames = new List<string>();
             foreach (DataRow row in schema.Rows)
@@ -90,6 +105,11 @@ namespace SEPFramework
 
         public override DataTable GetTable(string tableName)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             var stm = "SELECT * FROM " + tableName;
             DataTable tb = new DataTable();
             var cmd = new SqlCommand(stm, connection);
@@ -103,6 +123,11 @@ namespace SEPFramework
 
         public override bool CreateMembershipTable()
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             var stm0 = "IF NOT EXISTS (select * from sysobjects where name='account' and xtype='U') CREATE TABLE  account ( username VARCHAR(255) NOT NULL PRIMARY KEY , password VARCHAR(255) NOT NULL)";
             var stm1 = "IF NOT EXISTS (select * from sysobjects where name='role' and xtype='U') CREATE TABLE  role ( roleid INT NOT NULL , rolename VARCHAR(255) NOT NULL)";
             var stm2 = "IF NOT EXISTS (select * from sysobjects where name='account_role' and xtype='U') CREATE TABLE  account_role ( username VARCHAR(255) NOT NULL, roleid INT NOT NULL)";
@@ -126,6 +151,11 @@ namespace SEPFramework
 
         public override DataTable Login(string username, string password)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             var stm = "SELECT * FROM account WHERE username = @param0 AND password = @param1";
             DataTable tb = new DataTable();
             var cmd = new SqlCommand(stm, connection);
@@ -148,6 +178,11 @@ namespace SEPFramework
 
         public override bool Register(string username, string password)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             var stm = "INSERT INTO account VALUES (@param0,@param1)";
             var cmd = new SqlCommand(stm, connection);
             cmd.Parameters.AddWithValue("@param0", username);
@@ -168,8 +203,12 @@ namespace SEPFramework
 
         public override bool Update(string tableName, Row row, Row newRow)
         {
+            if (connection.State.ToString() != "Open")
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             SqlCommand cmd = QueryFactory.GetFactory(QueryType.update).CreateSqlServer(tableName, row, newRow).GetQuery();
-            Console.WriteLine(cmd.CommandText);
             cmd.Connection = connection;
             try
             {

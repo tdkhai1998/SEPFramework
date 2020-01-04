@@ -19,7 +19,12 @@ namespace SEPFramework.Membership
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-           bool success = database.Register(user.Text, pass.Text);
+            if (!this.database.Connection.Connect())
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
+            bool success = database.Register(user.Text, pass.Text);
             if (success)
             {
                 MessageBox.Show("Đăng ký thành công !");
