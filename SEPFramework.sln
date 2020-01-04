@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEPFramework", "SEPFramewor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEPFrameworkDll", "SEPFrameworkDll\SEPFrameworkDll.csproj", "{23FDBB18-D838-462C-AD16-93C6A0C99992}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{9CE87843-C7C4-4A9C-9F96-D0AD2210BECC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{23FDBB18-D838-462C-AD16-93C6A0C99992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23FDBB18-D838-462C-AD16-93C6A0C99992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23FDBB18-D838-462C-AD16-93C6A0C99992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE87843-C7C4-4A9C-9F96-D0AD2210BECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE87843-C7C4-4A9C-9F96-D0AD2210BECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE87843-C7C4-4A9C-9F96-D0AD2210BECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE87843-C7C4-4A9C-9F96-D0AD2210BECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

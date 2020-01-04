@@ -25,6 +25,7 @@ namespace SEPFramework
         public ReadForm()
         {
             InitializeComponent();
+            role = MyContainer.Create<Role>();
             if (table != null)
             {
                 this.dataGridView.DataSource = table.dataTable;
@@ -92,9 +93,9 @@ namespace SEPFramework
         {
             if (e.RowIndex < table.Rows.Count)
             {
-               updateBtn.Enabled = role.isAllowedDelete;
-               deleteBtn.Enabled = role.isAllowedUpdate;
-               currentRow = e.RowIndex;
+                updateBtn.Enabled = role.isAllowedDelete;
+                deleteBtn.Enabled = role.isAllowedUpdate;
+                currentRow = e.RowIndex;
             }
             else
             {
