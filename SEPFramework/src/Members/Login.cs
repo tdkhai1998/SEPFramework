@@ -26,6 +26,11 @@ namespace SEPFramework.Membership
 
         private void Register_Click(object sender, EventArgs e)
         {
+            if (!this.database.Connection.Connect())
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             MembershipBaseForm r = (MembershipBaseForm)MyContainer.Create<Register>();
             this.Hide();
             r.FormClosed += (s, args) => this.Show();
@@ -34,6 +39,11 @@ namespace SEPFramework.Membership
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            if (!this.database.Connection.Connect())
+            {
+                MessageBox.Show("Không thể kết nối đến database!");
+                Environment.Exit(0);
+            }
             roles = database.Login(user.Text, pass.Text);
             if (roles != null)
             {
