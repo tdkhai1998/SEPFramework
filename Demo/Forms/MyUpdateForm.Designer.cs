@@ -1,6 +1,6 @@
-﻿namespace SEPFramework
+﻿namespace Demo.Forms
 {
-    partial class BaseForm
+    partial class MyUpdateForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // BaseForm
+            // MyUpdateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "BaseForm";
-            this.Text = "BaseForm";
-            this.Load += new System.EventHandler(this.BaseForm_Load);
+            this.Name = "MyUpdateForm";
             this.ResumeLayout(false);
 
         }

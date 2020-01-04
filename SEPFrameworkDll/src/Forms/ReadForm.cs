@@ -25,6 +25,7 @@ namespace SEPFramework
         public ReadForm()
         {
             InitializeComponent();
+            role = MyContainer.Create<Role>();
             if (table != null)
             {
                 this.dataGridView.DataSource = table.dataTable;

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Demo
+namespace Demo.Forms
 {
-    public partial class abc : SEPFramework.ReadForm
+    public partial class MyUpdateForm : SEPFramework.UpdateForm
     {
-        public abc()
+        public MyUpdateForm()
         {
             InitializeComponent();
         }

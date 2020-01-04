@@ -16,7 +16,7 @@ namespace SEPFramework
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             CommonConnection connection = ConnectionFactory.createConnection("mysql", "remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
-            MyContainer.RegisterInstance<CommonConnection>(connection);
+            SEPContainer.RegisterConnection(connection);
             Login login = new Login
             {
                 SuccessAction = roles =>
@@ -28,11 +28,11 @@ namespace SEPFramework
                         isAllowedUpdate = roles.Contains("U"),
                         isAllowedDelete = roles.Contains("D")
                     };
-                    MyContainer.RegisterInstance<Role>(role);
+                    SEPContainer.RegisterRole(role);
                     new MainForm().Show();
                 }
             };
-            Application.Run(login);
+            Application.Run(new MainForm());
         }
     }
 }

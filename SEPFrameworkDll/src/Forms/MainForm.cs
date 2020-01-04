@@ -33,5 +33,10 @@ namespace SEPFramework
             r.FormClosed += (s, args) => this.Show();
             r.Show();
         }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
