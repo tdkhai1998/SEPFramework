@@ -36,7 +36,7 @@ namespace SEPFramework
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
         }
     }
 }

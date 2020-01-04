@@ -62,6 +62,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button updateBtn=new System.Windows.Forms.Button();
+        private System.Windows.Forms.Button updateBtn;
     }
 }

@@ -19,8 +19,8 @@ namespace SEPFramework
             addBtn.Location = new Point(40, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             updateBtn.Location = new Point(addBtn.Location.X + addBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
             deleteBtn.Location = new Point(updateBtn.Location.X + updateBtn.Size.Width + 10, dataGridView.Location.Y + dataGridView.Size.Height + 20);
-            if (table.Rows.Count > 0)
-                SetFocusRow(0);
+            //if (table.Rows.Count > 0)
+            SetFocusRow(-1);
         }
         public ReadForm()
         {
@@ -30,34 +30,43 @@ namespace SEPFramework
             {
                 this.dataGridView.DataSource = table.dataTable;
                 this.table.RegisterObserver(this.dataGridView);
-
+                
             }
         }
 
         public void SetFocusRow(int rowIndex)
         {
-            if (rowIndex >= table.Rows.Count||rowIndex<0) return;
-            foreach (DataGridViewRow row in this.dataGridView.SelectedRows)
-            {
-                this.dataGridView.Rows.RemoveAt(row.Index);
-            }
+            //if (rowIndex >= table.Rows.Count || rowIndex < 0) return;
+            //foreach (DataGridViewRow row in this.dataGridView.SelectedRows)
+            //{
+            //    this.dataGridView.Rows.RemoveAt(row.Index);
+            //}
             this.dataGridView.ClearSelection();
             this.dataGridView.CurrentCell = null;
-            this.dataGridView.Rows[rowIndex].Selected = true;
-            this.dataGridView.Rows[rowIndex].Cells[0].Selected = true;
-            this.dataGridView.FirstDisplayedScrollingRowIndex = this.dataGridView.SelectedRows[0].Index;
+            
+            currentRow = rowIndex;
+            if (rowIndex != -1)
+            {
+                this.dataGridView.Rows[rowIndex].Selected = true;
+                this.dataGridView.Rows[rowIndex].Cells[0].Selected = true;
+                //this.dataGridView.FirstDisplayedScrollingRowIndex = this.dataGridView.SelectedRows[0].Index;
+            }
         }
 
         private void AddBtn_Click(object sender, System.EventArgs e)
         {
             BaseForm r = (BaseForm) MyContainer.Create<IAddForm>();
-            r.done = Done;
+            r.done = this.Done;
             r.ShowDialog();
         }
 
         private void UpdateBtn_Click(object sender, System.EventArgs e)
         {
-            if (currentRow < 0) return;
+            if (currentRow < 0)
+            {
+                MessageBox.Show("Không có row được chọn.");
+                return;
+            }
             MyContainer.RegisterInstance<int>(currentRow);
             BaseForm r = (BaseForm)MyContainer.Create<IUpdateForm>();
             r.done = this.Done;

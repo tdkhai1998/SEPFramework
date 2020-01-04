@@ -17,13 +17,13 @@ namespace SEPFramework
         {
             InitializeComponent();
             this.CurrentRow = CurrentRow;
-          
+
         }
-        public UpdateForm():base()
+        public UpdateForm() : base()
         {
             InitializeComponent();
             try { this.CurrentRow = MyContainer.Create<int>(); } catch { }
-        
+
         }
         protected override void SetUpUi()
         {
@@ -97,7 +97,7 @@ namespace SEPFramework
 
             }
         }
-        
+
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
