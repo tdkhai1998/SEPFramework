@@ -17,7 +17,6 @@ namespace SEPFramework
             Application.SetCompatibleTextRenderingDefault(false);
             CommonConnection connection = ConnectionFactory.createConnection("mysql", "remotemysql.com", "WEJMD9dLmJ", "WEJMD9dLmJ", "CqlKK8zDL3", 3306);
             MyContainer.RegisterInstance<CommonConnection>(connection);
-
             Login login = new Login
             {
                 SuccessAction = roles =>

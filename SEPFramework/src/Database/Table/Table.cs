@@ -16,9 +16,9 @@ namespace SEPFramework
             this.Refresh();
         }
 
-        List<IDataGridView> obsevers = new List<IDataGridView>();
+        readonly List<IDataGridView> obsevers = new List<IDataGridView>();
 
-        public void registerObserver(IDataGridView dataGridView)
+        public void RegisterObserver(IDataGridView dataGridView)
         {
             this.obsevers.Add(dataGridView);
         }
@@ -48,13 +48,11 @@ namespace SEPFramework
 
         public bool Refresh()
         {
-
             bool result = ReadAction(this);
             foreach(IDataGridView dataGridView in this.obsevers)
             {
                 dataGridView.UpdateDataSource(this.dataTable);
             }
-
             return result;
         }
 

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23FDBB18-D838-462C-AD16-93C6A0C99992}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SEPFrameworkDll</RootNamespace>
+    <AssemblyName>SEPFrameworkDll</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Container\ConfigContainer.cs" />
+    <Compile Include="src\Container\Container.cs" />
+    <Compile Include="src\Database\Connection\CommonConnection.cs" />
+    <Compile Include="src\Database\Connection\ConnectionFactory.cs" />
+    <Compile Include="src\Database\Connection\MysqlConnection.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\DeleteFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\InsertFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\DeleteQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\InsertQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\IMySqlCommonQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\MySqlQueryFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\MySql\UpdateQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\QueryAbstractFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\QueryFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\QueryType.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\DeleteQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\InsertQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\ISqlServerCommonQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\SqlServerQueryFactory.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\SqlServer\UpdateQuery.cs" />
+    <Compile Include="src\Database\Connection\QueryFactory\UpdateFactory.cs" />
+    <Compile Include="src\Database\Connection\SqlServerConnection.cs" />
+    <Compile Include="src\Database\Database.cs" />
+    <Compile Include="src\Database\Role.cs" />
+    <Compile Include="src\Database\Table\Actions.cs" />
+    <Compile Include="src\Database\Table\Attribute.cs" />
+    <Compile Include="src\Database\Table\Column.cs" />
+    <Compile Include="src\Database\Table\Row.cs" />
+    <Compile Include="src\Database\Table\Table.cs" />
+    <Compile Include="src\Forms\AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\FormInterface\IAddForm.cs" />
+    <Compile Include="src\Forms\FormInterface\IReadForm.cs" />
+    <Compile Include="src\Forms\FormInterface\IUpdateForm.cs" />
+    <Compile Include="src\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ReadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ReadForm.Designer.cs">
+      <DependentUpon>ReadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\UpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Members\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Members\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Members\MembershipBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Members\MembershipBaseForm.Designer.cs">
+      <DependentUpon>MembershipBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Members\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Members\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Observer\CustomDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Observer\IDataGridView.cs" />
+    <Compile Include="src\Validate\validate.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="src\Forms\AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ReadForm.resx">
+      <DependentUpon>ReadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\UpdateForm.resx">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Members\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Members\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
